@@ -1,0 +1,296 @@
+@charset "UTF-8";
+
+ol, ul {
+    list-style: none;
+    padding-left: 0px;
+}
+a, a:visited, a:hover {
+	text-decoration: none;
+}
+button:hover {
+	text-decoration: none;
+}
+
+
+
+.totalBox {
+	/*가운데 정렬 세가지*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.contentBox {
+	padding: 120px 20px 0;
+	box-sizing: content-box;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background-color: #fafafa;
+}
+
+.eachContent {
+	width: 50%;
+}
+
+.contentArticle {
+	border-radius: 3px;
+	border: 1px solid #e6e6e6;
+	margin-bottom: 60px;
+	background-color: #fff;
+}
+
+.contentHeader {
+	height: 60px;
+	padding: 16px;
+	align-items: center;
+	border-bottom: 1px solid #efefef;
+	position: relative;
+	/* display: flex;
+	flex-direction: row; */
+}
+
+.contentHeaderProfilePhoto {
+	cursor: pointer;
+	display: inline-block;
+	align-self: center;
+	flex: none;
+	position: relative;
+}
+
+.profilePhoto {
+	background-color: #fafafa;
+	flex: 0 0 auto;
+	display: inline-block;
+}
+
+.moreBtn {
+	display: inline-block;
+	float: right;
+}
+
+.profilePhotoImg {
+	border-radius: 50%;
+	height: 100%;
+	width: 100%;
+}
+
+.contentHeaderProfileId {
+	margin-left: 16px;
+	display: inline-block;
+}
+
+.contentHeaderProfileIdATag {
+	width: 85%;
+	color: #262626;
+	font-weight: 600;
+}
+
+.thumbnail-wrappper { 
+	width: 25%; 
+} 
+.thumbnail { 
+	position: relative; 
+	padding-top: 100%; 
+	/* 1:1 ratio */ 
+	overflow: hidden; 
+} 
+.thumbnail .centered { 
+	position: absolute; 
+	top: 0; left: 0; right: 0; bottom: 0; 
+	-webkit-transform: translate(50%,50%); 
+	-ms-transform: translate(50%,50%); 
+	transform: translate(50%,50%); 
+} 
+.thumbnail .centered img { 
+	position: absolute; 
+	top: 0; left: 0; 
+	max-width: 100%; 
+	height: auto; 
+	-webkit-transform: translate(-50%,-50%); 
+	-ms-transform: translate(-50%,-50%); 
+	transform: translate(-50%,-50%); 
+}
+
+
+
+.photo-indicators {
+	margin-bottom: 15px;
+	margin-top: 15px;
+	display: flex;
+	justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+    position: relative;
+}
+
+.photo-indicators .active {
+	background: #3897f0;
+}
+
+.photo-indicators li {
+	background: #dbdbdb;
+	margin-right: 4px;
+	border-radius: 50%;
+	height: 6px;
+	transition: all .2s ease-in-out;
+    width: 6px;
+    border: 0;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.buttonIcon {
+	padding: 3px 16px;
+}
+
+.allIcon {
+	display: inline-block;
+}
+
+.iconButton {
+	min-height: 40px;
+	min-width: 40px;
+	
+}
+
+.iconButton i {
+	font-size: 1.5em;
+}
+
+.noButton {
+	align-items: center;
+	background: 0 0;
+	border: 0;
+}
+
+.likeCount {
+	padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 8px;
+}
+
+.likeCountButton {
+	color: #262626;
+}
+
+.contentComment {
+	margin: 0 0 auto;
+	padding: 0 16px;
+}
+
+.postContent {
+	padding-bottom: 0;
+	position: relative;
+	width: 100%;
+	margin-top: -5px;
+}
+
+.postContentId {
+	color: #262626;
+	text-decoration: none;
+	font-weight: 600;
+	overflow: hidden;
+	margin-right: 4px;
+	padding-left: 5px;
+    margin-left: -5px;
+}
+
+.moreButton {
+	color: #999;
+	margin: 0;
+	padding: 0;
+	line-height: inherit;
+}
+
+.postReply {
+	margin-bottom: 8px;
+}
+
+.replyMoreButton {
+	vertical-align: middle;
+	color: #999;
+	font-weight: 500;
+	position: relative;
+	padding: 0;
+	display: inline;
+}
+
+.uploadTime {
+	padding-left: 16px;
+	display: flex;
+	margin-bottom: 8px;
+}
+
+.uploadTimeDetail {
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    font-size: 10px;
+    padding-left: 6px;
+}
+
+.commentReply {
+	padding-left: 16px;
+	padding-right: 16px;
+	border-top: 1px solid #efefef;
+	color: #999;
+	font-size: 14px;
+	line-height: 18px;
+	min-height: 50px;
+	margin-top: 4px;
+	position: relative;
+}
+
+.commentBox {
+	margin-top: 15px;
+	display: inline-block;
+	width: 100%;
+	padding: 0 6px;
+}
+
+.commentForm {
+	position: relative;
+	display: inline;
+}
+
+.commentTextarea {
+	background: 0 0;
+	border: 0;
+	color: #262626;
+	font-size: inherit;
+	height: 18px;
+	padding : 0;
+	max-height: 80px;
+	resize: none;
+	outline: 0;
+	display: inline-block;
+}
+
+.commentSubmitButton {
+	border: 0;
+	color: #3897f0;
+	display: inline-block;
+	float: right;
+	padding: 0;
+	position: relative;
+	background: 0 0;
+	text-align: center;
+	text-transform: inherit;
+    text-overflow: ellipsis;
+    font-weight: 600;
+}
+
+
+
+
+.icon-common {
+	height: 24px;
+	width: 24px;
+}
+
+

@@ -1,0 +1,225 @@
+@charset "UTF-8";
+
+ol, ul {
+    list-style: none;
+    padding-left: 0px;
+}
+a, a:visited, a:hover {
+	text-decoration: none;
+}
+
+/* 전체 화면 css */
+.content-box {
+	/*가운데 정렬 세가지*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	max-width:935px;
+	padding-bottom: 44px;
+	padding-top: 70px;
+	margin: 0 auto;
+}
+
+
+/* 로그인 배너 css */
+.login-banner {
+	background-image: url("../img/main/home-phone.png");
+	align-self: center;
+	background-size: 454px 618px;
+	flex-basis: 454px;
+	height: 618px;
+	margin-left: -35px;
+	margin-right: -15px;
+}
+.phone-shape-img {
+	margin: 99px 0 0 151px;
+	position: relative;
+}
+.banner-inner-img {
+	
+}
+
+
+/* 오른쪽 로그인 박스 css */
+.login-box {
+	color: #262626;
+	justify-content: center;
+	margin-top: 12px;
+	max-width: 350px;
+	width: 100%; 
+}
+/* 공통 박스 : 로그인, 회원가입박스 */
+.common-box {
+	background-color: #fff;
+	border: 1px solid #e6e6e6;
+	border-radius: 1px;
+	margin: 0 0 10px;
+	padding: 10px 0;
+}
+
+/* 인스타그램 로고 */
+.logo-img {
+	height: 51px;
+	width: 175px;
+	margin: 22px auto 12px;
+	/*가운데 정렬 세가지*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 로그인 폼 */
+/* 입력 박스 */
+.login-form {
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+}
+.form-span {
+	margin: 0 40px 6px;
+	align-items: center;
+	border-radius: 3px;
+	box-sizing: border-box;
+	border: 1px solid #efefef;
+	font-size: 12px;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	height: 36px;
+	line-height: 36px;
+}
+.input_box {
+	font-size: 12px;
+	border: 0;
+	color: #999;
+	padding: 9px 0 7px 8px;
+	background: #fafafa;
+}
+/* 로그인 버튼, 카카오 로그인 버튼 공통  */
+.common-btn {
+	margin: 8px 40px;
+	font-size: 14px;
+	font-weight: 600;
+	text-align: center;
+	display: block;
+}
+/* 로그인 버튼 */
+.login-btn {
+	border: 1px solid #3897f0;
+	background-color: #3897f0;
+	border-radius: 4px;
+	color: #fff;
+}
+
+
+/* 또는 부분 css */
+.or-bar-bax {
+	display: flex;
+	flex-direction: row;
+	-webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    align-items: stretch;
+    position: relative;
+    margin: 8px 40px;
+}
+.bar {
+	background-color: #efefef;
+	height: 1px;
+	width: 40%;
+	position: relative;
+	display: flex;
+	top: .45em;
+	-webkit-box-flex: 1;
+	flex-grow: 1;
+	flex-shrink: 1;
+}
+.or-text {
+	color: #999;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15px;
+    margin: 0 18px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    -webkit-box-flex: 0;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+/* 카카오 로그인 버튼 */
+.kakao-btn {
+	border: 0;
+	background-color: #fff;
+	color: #eda900;
+}
+
+/* 경고 메시지 */
+.msg-box {
+	color: #ed4956;
+	margin: 10px 40px;
+	font-size: 14px;
+	line-height: 18px;
+	text-align: center;
+}
+
+/* 비밀 번호 찾기 */
+.a-text,
+.a-text:active,
+.a-text:hover,
+.a-text:visited {
+	font-size: 12px;
+	text-align: center;
+	color: #003569;
+	line-height: 14px;
+	margin-top: 12px;
+}
+
+
+
+/* 회원가입 박스 */
+.external-enter {
+	line-height: 18px;
+	font-size: 14px;
+	font-weight: 300;
+	
+	/*가운데 정렬 세가지*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.p-text {
+	color: #262626;
+	margin: 15px;
+}
+.p-text a,
+.p-text a:active,
+.p-text a:hover,
+.p-text a:visited {
+	color: #3897f0;
+}
+
+
+/* 앱 다운로드 css */
+.app-box {
+	 padding: 8px 0;
+}
+.app-text {
+	color: #262626;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 10px 20px;
+    text-align: center;
+}
+.app-download-img-box {
+	padding: 0;
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.app-down-load-img {
+	display: inline-block;
+}

@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+ol, ul {
+    list-style: none;
+    padding-left: 0px;
+}
+a, a:visited {
+	text-decoration: none;
+}
+
+
+
+/* 메뉴바 전체 css */
+.menu-box {
+	padding: 26px 40px;
+	position: relative;
+}
+.menu-content {
+	display: inline-block;
+	list-style-type: none;
+}
+
+
+/* 로고부분 css */
+.logo {
+	min-width: 69px;
+}
+.logo-bar {
+	background-color: #262626;
+	height: 28px;
+	margin: 0 16px;
+	width: 1px;
+}
+.logo-img {
+	width: 130px;
+	height: 35px;
+}
+
+.logo-img img {
+	width: 130px;
+    height: 35px;
+}
+
+
+/* 검색부분 css */
+.search {
+	height: 28px;
+	width: 215px;
+	margin-left: 110px;
+}
+.search-box {
+	color: #999;
+    font-size: 18px;
+    height: 36px;
+    left: 8px;
+}
+.input_box {
+	width: 100%;
+	height: 30px;
+	background-color: #fafafa;
+	font-size: 12px;
+	border-color: #e6e6e6;
+	text-align: center;	
+}
+
+
+/* 아이콘 메뉴 css */
+.icon {
+	padding: 0 10px;
+}
+.icon a {
+	text-decoration: none;
+	color: #262626;;
+}
+.menu-icon {
+	width: 28px;
+	height: 28px;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+/* 모달 css */
+
+.m-box {
+	width: 400px;
+	background-color: #fff;
+	max-height: calc(100% - 40px);
+	border-radius: 14px;
+	
+	/*가운데 정렬 세가지*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.m-content {
+	justify-content: center;
+}
+
+.m-body {
+	padding: 0;
+}
+
+.m-body:only-child,
+.modal-btn:first-child {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.modal-btn {
+	width: 100%;
+	background: 0 0;
+	border-top: 1px solid #dbdbdb;
+	border-bottom: 0;
+	border-left: 0;
+	border-right: 0;
+	color: #262626;
+	padding: 4px 8px;
+	text-align: center;
+	vertical-align: middle;
+	min-height: 48px;
+	
+}
+
+.modal-btn:last-of-type {
+	border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+
+
+
+.m-title {
+	margin: 16px 32px;
+	text-align: center;
+}
+
+.m-title h3 {
+	display: block;
+	color: #262626;
+	font-size: 18px;
+	line-height: 24px;
+	margin: -4px 0 -6px;
+	font-weight: 600;
+}
+
+
+.modal-follow-title {
+	border-bottom: 1px solid #dbdbdb;
+	flex-direction: row;
+	height: 43px;
+	/*가운데 정렬 세가지*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-follow-title h1 {
+	align-items: center;
+	-webkit-box-align: center;
+	display: flex;
+	font-size: 16px;
+	font-weight: 600;
+	justify-content: center;
+	line-height: 24px;
+	text-align: center;
+	margin-bottom: 0;
+	padding: 0 160px;
+}
+
+.follow-close-btn {
+	-webkit-box-align: center;
+    align-items: center;
+	background: 0 0;
+	border: 0;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+    padding: 8px;
+}
+
+.follow-close-btn i {
+	display: block;
+	height: 24;
+	width: 24;
+}
+
+.modal-follow-list {
+	border-radius: 12px;
+    display: block;
+    -webkit-box-flex: 1;
+    flex: 1 1;
+    min-height: 200px;
+    overflow-y: scroll;
+}
+
+.follow-ul {
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+
+}
+
+.follow-ul > p {
+	/*가운데 정렬 세가지*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	padding-top: 80px;
+}
+
+.follow-li {
+	display: flex;
+	flex-direction: row;
+	flex-direction: column;
+	padding: 8px 25px;
+	
+}
+
+.profile-section {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.profile-photo {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+.profile-id {
+	margin: 8px 13px;;
+}
+
+.profile-id a {
+	color: black;
+}
+
+

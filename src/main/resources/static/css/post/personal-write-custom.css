@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+
+ol, ul {
+    list-style: none;
+    padding-left: 0px;
+}
+a, a:visited, a:hover {
+	text-decoration: none;
+}
+
+.write-article {
+	flex: 1 1 400px;
+	min-width: 50px;
+}
+
+.write-form {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 16px;
+	margin-top: 16px;
+	align-items: stretch;
+}
+
+.write-upload {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 16px;
+	justify-content: flex-start;
+}
+
+.left-side {
+	padding-right: 32px;
+    text-align: right;
+    padding: 20px 32px;
+    box-sizing: border-box;
+    color: #262626;
+    -webkit-box-flex: 0;
+    line-height: 18px;
+    flex: 0 0 400px;
+}
+
+.preview-img {
+	width: 250px;
+	height: 250px;
+	margin-right: 50px;
+	border-radius: 3px;
+}
+
+.right-side {
+	display: flex;
+    flex-basis: 355px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    padding: 20px 60px 20px 0;
+    color: #262626;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    font-size: 16px;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+}
+
+.input-textarea {
+	height: 250px;
+    padding: 6px 10px;
+    resize: vertical;
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #262626;
+    font-size: 16px;
+    width: 90%;
+}
+
+.input-btn {
+	border: 1px solid #3897f0;
+    background-color: #3897f0;
+    border-radius: 4px;
+    color: #fff;
+    position: relative;
+    font-weight: 600;
+    text-align: center;
+    text-transform: inherit;
+    font-size: 15px;
+    float: right;
+    width: 170px;
+}
+
+
+
+
+.fileBox .fileName {
+	display:inline-block;
+	width:170px;
+	height:35px;
+	padding-left:10px;
+	margin-right:5px;
+	line-height:30px;
+	border:1px solid #aaa;
+	background-color:#fff;
+	vertical-align:middle;
+}
+.fileBox .btn_file {
+	display:inline-block;
+	border:1px solid #000;
+	width:70px;
+	height:30px;
+	font-size:0.8em;
+	line-height:30px;
+	text-align:center;
+	vertical-align:middle;
+	margin: 8px 0;
+}
+.fileBox input[type="file"] {
+	position:absolute;
+	width:1px;
+	height:1px;
+	padding:0;
+	margin:-1px;
+	overflow:hidden;
+	clip:rect(0,0,0,0);
+	border:0;
+}
+
+.preview-img {
+	background-color: #fff;
+}
