@@ -12,7 +12,7 @@
 	<jsp:include page="../include/static-head.jsp"/>
 	
 	<!-- join custom css -->
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/user/join-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/user/join-custom.css'/>">
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
@@ -32,7 +32,7 @@
 						<!-- 첫번째 박스 : 가입하기 상자 -->
 						<div class="common-box" style="padding-bottom: 30px;">
 							<!-- 로고 이미지 -->
-							<img class="logo-img" src="<c:url value='resources/img/hastagram-logo.jpg'/>">
+							<img class="logo-img" src="<c:url value='/resources/img/hastagram-logo.jpg'/>">
 							<!-- 상자 메인 부분 -->
 							<div class="box-main">
 								<!-- [post] /user 요청 -->
@@ -44,7 +44,7 @@
 									<div class="join-btn">
 										<a class="kakao-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=623078f297cf54c8346f98a5e807a5e1&redirect_uri=http://localhost:8000/myapp/kakaoLogin&response_type=code"">
 											<%-- <span class="">Kakao로 로그인</span> --%>
-											<img style="width: 266px; padding: 0px;" src="<c:url value='resources/img/main/kakao_account_login_btn_medium_wide.png'/>" >
+											<img style="width: 266px; padding: 0px;" src="<c:url value='/resources/img/main/kakao_account_login_btn_medium_wide.png'/>" >
 										</a>
 									</div>
 									
@@ -104,10 +104,10 @@
 							<p class="app-text">앱을 다운로드하세요.</p>
 							<div class="app-download-img-box">
 								<a class="app-down-load-img" href="#">
-									<img src="<c:url value='resources/img/app-store.png'/>" style="height: 40px;">
+									<img src="<c:url value='/resources/img/app-store.png'/>" style="height: 40px;">
 								</a>
 								<a class="app-down-load-img" href="#">
-									<img src="<c:url value='resources/img/google-play.png'/>" style="height: 40px;">
+									<img src="<c:url value='/resources/img/google-play.png'/>" style="height: 40px;">
 								</a>
 							</div>
 						</div>
@@ -166,7 +166,7 @@
 				const email = $('#user_email').val();
 				$.ajax({
 					type: "POST",
-					url: "/myapp/user/emailCheck",
+					url: "/hastagram/user/emailCheck",
 					headers: {
 		                "Content-Type": "application/json",
 		                "X-HTTP-Method-Override": "POST"
@@ -211,7 +211,7 @@
 				const id = $('#user_id').val();
 				$.ajax({
 					type: "POST",
-					url: "/myapp/user/idCheck",
+					url: "/hastagram/user/idCheck",
 					headers: {
 		                "Content-Type": "application/json",
 		                "X-HTTP-Method-Override": "POST"
@@ -317,7 +317,7 @@
 				//통신
 				$.ajax({
 					type: "POST",
-					url: "/myapp/user",
+					url: "/hastagram/user",
 					headers: {
 						"Content-Type": "application/json",
 						"X-HTTP-Method-Override": "POST"
@@ -328,7 +328,7 @@
 						console.log("result : " + result);
 						if(result === "joinSuccess"){
 							alert("회원가입 성공!");
-							self.location = "/myapp";
+							self.location = "/hastagram";
 						}
 					}
 				}); //통신끝

@@ -27,4 +27,4 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <!-- 파비콘 변경 -->
-<link rel="icon" type="image/png" href="<c:url value='resources/img/favicon.png'/>" />
+<link rel="icon" type="image/png" href="<c:url value='/resources/img/favicon.png'/>" />
