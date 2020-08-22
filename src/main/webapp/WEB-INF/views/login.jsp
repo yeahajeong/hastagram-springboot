@@ -59,11 +59,11 @@
                     <div style="margin-bottom: 24px;"></div>
                     <!-- 입력 박스 -->
                     <span class="form-span">
-							<input type="text" class="form-control input_box" id="login_email" placeholder="이메일" maxlength="75">
-				 		</span>
+                        <input type="text" class="form-control input_box" id="login_id" placeholder="아이디" maxlength="75">
+                    </span>
                     <span class="form-span">
-							<input type="password" class="form-control input_box" id="login_pw" placeholder="비밀번호" maxlength="75">
-				 		</span>
+                        <input type="password" class="form-control input_box" id="login_pw" placeholder="비밀번호" maxlength="75">
+                    </span>
                     <!-- 로그인 버튼 -->
                     <button type="button" id="login-btn" class="common-btn login-btn">
                         <span>로그인</span>
@@ -129,9 +129,9 @@
         //확인 값 2개
         let chk1 = false, chk2 = false;
 
-        $('#login_email').on('keyup', function(){
+        $('#login_id').on('keyup', function(){
 
-            if($('#login_email').val() === "") {
+            if($('#login_id').val() === "") {
                 chk1 = false;
             } else {
                 chk1 = true;
@@ -153,22 +153,22 @@
 
             if(chk1 && chk2) {
 
-                const email = $('#login_email').val();
+                const id = $('#login_id').val();
                 const pw = $('#login_pw').val();
 
                 //콘솔에 값 출력
-                console.log("email: " + email);
+                console.log("id: " + id);
                 console.log("pw: " + pw);
 
                 //json객체에 담기
                 const userInfo = {
-                    email: email,
+                    id: id,
                     pw: pw
                 };
 
                 $.ajax({
                     type: "POST",
-                    url: "/myapp/user/loginCheck",
+                    url: "/hastagram/user/loginCheck",
                     headers: {
                         "Content-Type": "application/json",
                         "X-HTTP-Method-Override": "POST"
@@ -189,7 +189,7 @@
 
                         } else if(data === "loginSuccess") {
                             alert("로그인성공!");
-                            self.location="/myapp/post/list";
+                            self.location="/hastagram/post/list";
                         }
                     }
                 }); //통신끝!
