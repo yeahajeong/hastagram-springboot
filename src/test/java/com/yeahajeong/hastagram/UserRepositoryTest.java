@@ -10,8 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class UserRepositoryTest {
 
     @Test
-    //테이블 생성 테스트
-    public void test() {
-        //테이블 생성
+    public void contextLoads() {
     }
+
+
 }
