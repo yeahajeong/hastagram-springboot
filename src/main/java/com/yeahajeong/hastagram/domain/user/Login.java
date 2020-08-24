@@ -1,4 +1,4 @@
-package com.yeahajeong.hastagram.domain;
+package com.yeahajeong.hastagram.domain.user;
 
 import lombok.Getter;
 import lombok.Setter;
