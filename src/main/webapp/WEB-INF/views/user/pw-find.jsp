@@ -11,7 +11,7 @@
 	
 	<jsp:include page="../include/static-head.jsp"/>
 	
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/user/find-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/user/find-custom.css'/>">
 </head>
 <body>
 	<!-- 전체화면 -->
@@ -93,7 +93,7 @@
 				if(chk) {
 					$.ajax({
 						type: "POST",
-						url: "/myapp/user/pw-find",
+						url: "/hastagram/user/pw-find",
 						headers: {
 			                "Content-Type": "application/json",
 			                "X-HTTP-Method-Override": "POST"
@@ -104,7 +104,7 @@
 			            	console.log("result: " + result);
 			            	if(result === "Success") {
 			            		alert('이메일로 임시 비밀번호를 발송하였습니다.');
-			            		self.location = "/myapp";
+			            		self.location = "/hastagram";
 			            	} else {
 			            		alert('일치하는 회원의 정보가 존재하지 않습니다.');
 			            	}

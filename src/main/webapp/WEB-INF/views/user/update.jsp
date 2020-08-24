@@ -12,8 +12,8 @@
 	
 	<jsp:include page="../include/static-head.jsp"/>
 	
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/user/edit-custom.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/post/modal-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/user/edit-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/post/modal-custom.css'/>">
 </head>
 <body>
 	<!-- 전체화면 -->
@@ -25,7 +25,7 @@
 			<div class="accountBox">
 				<ul class="accountMenu" style="padding-left: 0px;">
 					<li>
-						<a class="eachMenu selectMenu" href="<c:url value='/user/modify' />">프로필 편집</a>
+						<a class="eachMenu selectMenu" href="<c:url value='/user/update' />">프로필 편집</a>
 					</li>
 					<li>
 						<a class="eachMenu hoverMenu" href="<c:url value='/user/pw-change' />">비밀번호 변경</a>
@@ -37,16 +37,17 @@
 				<article class="accountArticle">
 					<div class="profileForm">
 						<div class="profilePhoto">
-							<c:set var="len" value="${fn:length(login.profileName) }" />
+							<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='/resources/img/none-user-img.jpg'/>">
+							<%--<c:set var="len" value="${fn:length(login.profileName) }" />
 				        	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(login.profileName, len-4, len)) }" />
 				        	<c:choose>
 				        		<c:when test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.GIF') or (filetype eq '.PNG')}">
-									<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='/user/profile/${login.userNo }'/>">
+									<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='/hastagram/user/profile/${login.userNo }'/>">
 								</c:when>
 								<c:otherwise>
-									<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='resources/img/none-user-img.jpg'/>">
+									<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='/resources/img/none-user-img.jpg'/>">
 								</c:otherwise>
-				       		</c:choose>
+				       		</c:choose>--%>
 						</div>
 						<div class="profileId">
 							<h1 class="profileIdText">${login.id }</h1>
@@ -268,7 +269,7 @@
 					//통신
 					$.ajax({
 						type: "POST",
-						url: "/myapp/user/modify",
+						url: "/hastagram/user/update",
 						headers: {
 							"Content-Type": "application/json",
 							"X-HTTP-Method-Override": "POST"
@@ -277,9 +278,9 @@
 						data: JSON.stringify(user),
 						success: function(result) {
 							console.log("result : " + result);
-							if(result === "modifySuccess"){
+							if(result === "updateSuccess"){
 								alert("회원정보 변경 성공!");
-								self.location = "redirect:/myapp/user/modify";
+								self.location = "redirect:/hastagram/user/update";
 							} else if (result === "idFail") {
 								alert("중복된 아이디가 존재합니다.");
 							} else if (result === "emailFail") {

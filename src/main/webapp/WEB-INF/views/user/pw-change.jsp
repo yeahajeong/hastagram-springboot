@@ -11,7 +11,7 @@
 	<title>비밀번호변경하기ㆍHastagram</title>
 	
 	<jsp:include page="../include/static-head.jsp"/>
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/user/edit-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/user/edit-custom.css'/>">
 </head>
 <body>
 	<!-- 전체화면 -->
@@ -35,7 +35,8 @@
 				<article class="accountArticle">
 					<div class="profileForm">
 						<div class="profilePhoto">
-							<c:set var="len" value="${fn:length(login.profileName) }" />
+							<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='/resources/img/none-user-img.jpg'/>">
+							<%--<c:set var="len" value="${fn:length(login.profileName) }" />
 				        	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(login.profileName, len-4, len)) }" />
 				        	<c:choose>
 				        		<c:when test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.GIF') or (filetype eq '.PNG')}">
@@ -44,7 +45,7 @@
 								<c:otherwise>
 									<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='resources/img/none-user-img.jpg'/>">
 								</c:otherwise>
-				       		</c:choose>
+				       		</c:choose>--%>
 						</div>
 						<div class="profileId">
 							<h1 class="profileIdText">${login.id }</h1>
@@ -125,7 +126,7 @@
 					
 					$.ajax({
 						type: "POST",
-						url: "/myapp/user/checkPw",
+						url: "/hastagram/user/checkPw",
 						headers: {
 							"Content-Type": "application/json",
 			                "X-HTTP-Method-Override": "POST"
@@ -222,7 +223,7 @@
 					
 					$.ajax({
 						type: "POST",
-						url: "/myapp/user/pw-change",
+						url: "/hastagram/user/pw-change",
 			            headers: {
 			                "Content-Type": "application/json",
 			                "X-HTTP-Method-Override": "POST"
@@ -234,7 +235,7 @@
 			            	console.log("result: " + result);
 			            	if(result === "changeSuccess") {
 			            		alert('비밀번호가 변경되었습니다.');
-			            		location.href ="/myapp/user/pw-change";
+			            		location.href ="/hastagram/user/pw-change";
 			            	} else {
 			            		alert('현재 비밀번호가 틀렸습니다.');
 			            	}

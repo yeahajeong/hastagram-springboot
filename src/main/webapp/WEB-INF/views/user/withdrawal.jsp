@@ -12,7 +12,7 @@
 	
 	<jsp:include page="../include/static-head.jsp"/>
 
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/user/edit-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/user/edit-custom.css'/>">
 </head>
 <body>
 	<!-- 전체화면 -->
@@ -36,7 +36,8 @@
 				<article class="accountArticle">
 					<div class="profileForm">
 						<div class="profilePhoto">
-							<c:set var="len" value="${fn:length(login.profileName) }" />
+							<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='/resources/img/none-user-img.jpg'/>">
+							<%--<c:set var="len" value="${fn:length(login.profileName) }" />
 				        	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(login.profileName, len-4, len)) }" />
 				        	<c:choose>
 				        		<c:when test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.GIF') or (filetype eq '.PNG')}">
@@ -45,7 +46,7 @@
 								<c:otherwise>
 									<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='resources/img/none-user-img.jpg'/>">
 								</c:otherwise>
-				       		</c:choose>
+				       		</c:choose>--%>
 						</div>
 						<div class="profileId">
 							<h1 class="profileIdText">${login.id }</h1>
@@ -126,7 +127,7 @@
 					
 					$.ajax({
 						type: "POST",
-						url: "/myapp/user/withdrawal",
+						url: "/hastagram/user/withdrawal",
 						headers: {
 			                "Content-Type": "application/json",
 			                "X-HTTP-Method-Override": "POST"
@@ -138,7 +139,7 @@
 							
 							if(result === "Success") {
 								alert('탈퇴되었습니다. 안녕!');
-								self.location = '/myapp';
+								self.location = '/hastagram';
 						    } else {
 						    	alert('비밀번호가 틀렸습니다.')
 						    }

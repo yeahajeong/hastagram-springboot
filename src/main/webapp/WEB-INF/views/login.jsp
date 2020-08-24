@@ -12,7 +12,7 @@
     <jsp:include page="include/static-head.jsp"/>
 
     <!-- main custom css -->
-    <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/login-custom.css'/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/login-custom.css'/>">
 
 </head>
 <body>
@@ -26,23 +26,23 @@
         <div class="carousel-inner login-banner">
             <div class="carousel-item active  phone-shape-img">
                 <!-- 바뀌는 이미지 -->
-                <img class="banner-inner-img" src="<c:url value='resources/img/main/main-screenshoot1.jpg'/>">
+                <img class="banner-inner-img" src="<c:url value='/resources/img/main/main-screenshoot1.jpg'/>">
             </div>
             <div class="carousel-item phone-shape-img">
                 <!-- 바뀌는 이미지 -->
-                <img class="banner-inner-img" src="<c:url value='resources/img/main/main-screenshoot2.jpg'/>">
+                <img class="banner-inner-img" src="<c:url value='/resources/img/main/main-screenshoot2.jpg'/>">
             </div>
             <div class="carousel-item phone-shape-img">
                 <!-- 바뀌는 이미지 -->
-                <img class="banner-inner-img" src="<c:url value='resources/img/main/main-screenshoot3.jpg'/>">
+                <img class="banner-inner-img" src="<c:url value='/resources/img/main/main-screenshoot3.jpg'/>">
             </div>
             <div class="carousel-item phone-shape-img">
                 <!-- 바뀌는 이미지 -->
-                <img class="banner-inner-img" src="<c:url value='resources/img/main/main-screenshoot4.jpg'/>">
+                <img class="banner-inner-img" src="<c:url value='/resources/img/main/main-screenshoot4.jpg'/>">
             </div>
             <div class="carousel-item phone-shape-img">
                 <!-- 바뀌는 이미지 -->
-                <img class="banner-inner-img" src="<c:url value='resources/img/main/main-screenshoot5.jpg'/>">
+                <img class="banner-inner-img" src="<c:url value='/resources/img/main/main-screenshoot5.jpg'/>">
             </div>
         </div>
 
@@ -52,7 +52,7 @@
             <div class="common-box">
 
                 <!-- 하스타 그램 로고 -->
-                <img class="logo-img" src="<c:url value='resources/img/hastagram-logo.jpg'/>">
+                <img class="logo-img" src="<c:url value='/resources/img/hastagram-logo.jpg'/>">
 
                 <!-- 로그인 폼 -->
                 <form class="login-form" action="<c:url value='/user'/>" method="post" style="margin-bottom: 10px;">
@@ -79,14 +79,14 @@
                     <!-- 카카오로 로그인 버튼 -->
                     <a class="common-btn kakao-btn" style="padding: 0px;" href="https://kauth.kakao.com/oauth/authorize?client_id=623078f297cf54c8346f98a5e807a5e1&redirect_uri=http://localhost:8000/myapp/kakaoLogin&response_type=code">
                         <%-- <span class="kakao-text">Kakao로 로그인</span> --%>
-                        <img style="width: 260px; padding: 0px;" src="<c:url value='resources/img/main/kakao_account_login_btn_medium_wide.png'/>" >
+                        <img style="width: 260px; padding: 0px;" src="<c:url value='/resources/img/main/kakao_account_login_btn_medium_wide.png'/>" >
                     </a>
 
                     <!-- 경고창 -->
                     <div class="msg-box" id="alert_msg"></div>
 
                     <!-- 비밀번호 찾기 -->
-                    <a class="a-text" href="<c:url value='/user/pw-find'/>">비밀번호를 잊으셨나요?</a>
+                    <a class="a-text" href="<c:url value='/hastagram/user/pw-find'/>">비밀번호를 잊으셨나요?</a>
                 </form>
 
             </div>
@@ -105,10 +105,10 @@
                 <p class="app-text">앱을 다운로드하세요.</p>
                 <div class="app-download-img-box">
                     <a class="app-down-load-img" href="#">
-                        <img src="<c:url value='resources/img/app-store.png'/>" style="height: 40px;">
+                        <img src="<c:url value='/resources/img/app-store.png'/>" style="height: 40px;">
                     </a>
                     <a class="app-down-load-img" href="#">
-                        <img src="<c:url value='resources/img/google-play.png'/>" style="height: 40px;">
+                        <img src="<c:url value='/resources/img/google-play.png'/>" style="height: 40px;">
                     </a>
                 </div>
             </div>

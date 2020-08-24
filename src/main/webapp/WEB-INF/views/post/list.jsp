@@ -13,7 +13,7 @@
 	
 	<jsp:include page="../include/static-head.jsp"/>
 	
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/post/list-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/post/list-custom.css'/>">
 </head>
 <body>
 	<!-- 전체화면 -->
@@ -40,22 +40,23 @@
 								<div class="contentHeaderProfilePhoto" role="button">
 									<canvas class="" style="position: absolute; top: -5px; left: -5px; width: 42px; height: 42px;"></canvas>
 									<span class="profilePhoto" style="width: 32px; height: 32px;">
-										<c:set var="len" value="${fn:length(p.profileName) }" />
+										<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/resources/img/none-user-img.jpg'/>">
+										<%--<c:set var="len" value="${fn:length(p.profileName) }" />
 							        	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(p.profileName, len-4, len)) }" />
 							        	<c:choose>
 							        		<c:when test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.GIF') or (filetype eq '.PNG')}">
-												<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/post/profile/${p.userNo }'/>">
+												<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/hastagram/post/profile/${p.userNo }'/>">
 											</c:when>
 											<c:otherwise>
-												<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='resources/img/none-user-img.jpg'/>">
+												<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/resources/img/none-user-img.jpg'/>">
 											</c:otherwise>
-							       		</c:choose>
+							       		</c:choose> 프로필사진 생략,,,,--%>
 									</span>
 								</div>
 								<!-- 컨텐츠 헤더 프로필 아이디 -->
 								<div class="contentHeaderProfileId">
 									<div class="profileId">
-										<a class="contentHeaderProfileIdATag" href="<c:url value='/post/${p.id}' />">${p.id }</a>
+										<a class="contentHeaderProfileIdATag" href="<c:url value='/hastagram/post/${p.id}' />">${p.id }</a>
 									</div>
 								</div>
 								
@@ -70,16 +71,16 @@
 							
 							<!-- 게시글 사진 -->
 							<div id="demo" class="carousel slide thumbnail-wrapper" data-ride="carousel" data-interval="false"><!-- 자동으로 넘어가지 않도록  설정 data-interval="false"-->
-								<!-- 게시물 -->
-								<c:set var="len" value="${fn:length(p.fileName) }" />
+								<!-- 게시물  ★수정해야할곳★ -->
+								<%--<c:set var="len" value="${fn:length(p.fileName) }" />
 		        				<c:set var="filetype" value="${fn:toUpperCase(fn:substring(p.fileName, len-4, len)) }" />
 								<div class="carousel-inner thumbnail">
 									<div class="carousel-item active centered">
 										<c:if test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.GIF') or (filetype eq '.PNG')}">
-											<img alt="" class="" src="<c:url value='/post/file/${p.postNo}'/>">
+											<img alt="" class="" src="<c:url value='/hastagram/post/file/${p.postNo}'/>">
 										</c:if>
 									</div>
-								</div>
+								</div>--%>
 							</div>
 							
 							<!-- 댓글 리스트 -->
@@ -90,28 +91,28 @@
 									<span class="allIcon">
 										<button class="iconButton noButton">
 											<%-- <i class="far fa-heart fa-2x"></i> --%>
-											<img class="icon-common" src="<c:url value='resources/img/like.jpg'/>">
+											<img class="icon-common" src="<c:url value='/resources/img/like.jpg'/>">
 										</button>
 									</span>
 									<!-- 댓글 아이콘 -->
 									<span class="allIcon">
 										<button class="iconButton noButton">
 											<%-- <i class="far fa-comment fa-2x"></i> --%>
-											<img class="icon-common" src="<c:url value='resources/img/reply.jpg'/>">
+											<img class="icon-common" src="<c:url value='/resources/img/reply.jpg'/>">
 										</button>
 									</span>
 									<!-- 공유 아이콘 -->
 									<span class="allIcon">
 										<button class="iconButton noButton">
 											<%--<i class="fas fa-sign-out-alt fa-2x"></i>--%>
-											<img class="icon-common" alt="" src="<c:url value='resources/img/sharing.jpg'/>">
+											<img class="icon-common" alt="" src="<c:url value='/resources/img/sharing.jpg'/>">
 										</button>
 									</span>
 									<!-- 북마크 아이콘 -->
 									<span class="allIcon" style="float: right">
 										<button class="iconButton noButton">
 											<%--<i class="far fa-bookmark fa-2x"></i>--%>
-											<img class="icon-common" src="<c:url value='resources/img/bookmark.jpg'/>">
+											<img class="icon-common" src="<c:url value='/resources/img/bookmark.jpg'/>">
 										</button>
 									</span>
 								</section>
@@ -202,8 +203,6 @@
 			//댓글 등록 버튼 클릭 이벤트
 			$("#replyBtn").on("click", function() {
 				
-				
-				
 				const postNo = $("#postNo").val();
 				const userNo = $("#userNo").val();
 				const content = $("#content").val();
@@ -214,7 +213,7 @@
 					//통신
 					$.ajax({
 						type: "POST",
-						url: "/myapp/replies",
+						url: "/hastagram/replies",
 						headers: {
 							"Content-Type": "application/json",
 							"X-HTTP-Method-Override": "POST"
@@ -228,7 +227,7 @@
 						success: function(result) {
 							console.log("result : " + result);
 							if(result === "regSuccess") {
-								self.location = "/myapp/post/list";
+								self.location = "/hastagram/post/list";
 							} else {
 								alret("댓글 달기 실패!");
 							}
