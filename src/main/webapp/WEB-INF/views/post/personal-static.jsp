@@ -51,7 +51,7 @@
 			
 			<c:if test="${login.userNo == user.userNo }">
 				<!-- 프로필편집 버튼 -->
-				<a class="profileEdit" href="<c:url value='/user/modify'/>">
+				<a class="profileEdit" href="<c:url value='/user/update'/>">
 					<button type="button" class="editBtn">프로필 편집</button>
 				</a>
 				

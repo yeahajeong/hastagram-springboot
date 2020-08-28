@@ -1,3 +1,6 @@
 # Project exclude paths
 /target/
 .idea
+
+# My ignore
+src/main/resources/application.properties

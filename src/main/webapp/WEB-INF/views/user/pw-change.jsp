@@ -23,7 +23,7 @@
 			<div class="accountBox">
 				<ul class="accountMenu" style="padding-left: 0px;">
 					<li>
-						<a class="eachMenu hoverMenu" href="<c:url value='/user/modify' />">프로필 편집</a>
+						<a class="eachMenu hoverMenu" href="<c:url value='/user/update' />">프로필 편집</a>
 					</li>
 					<li>
 						<a class="eachMenu selectMenu" href="<c:url value='/user/pw-change' />">비밀번호 변경</a>

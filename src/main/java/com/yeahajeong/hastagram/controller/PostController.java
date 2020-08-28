@@ -4,6 +4,8 @@ import com.yeahajeong.hastagram.domain.post.Post;
 import com.yeahajeong.hastagram.domain.user.User;
 import com.yeahajeong.hastagram.repository.PostRepository;
 import com.yeahajeong.hastagram.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
@@ -22,9 +24,10 @@ import java.util.List;
 @RequestMapping("/post")
 public class PostController {
 
+    private static final Logger logger = LoggerFactory.getLogger(PostController.class);
+
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private PostRepository postRepository;
 
@@ -124,4 +127,15 @@ public class PostController {
 
         return new ModelAndView("redirect:/post/list");
     }
+
+
+    //게시글 삭제 요청
+    @PostMapping("/delete")
+    public ModelAndView delete(@RequestParam("postNo") Long postNo, @RequestParam("id") String id) throws Exception {
+        logger.info("삭제 요청 발생값 확인 postNo = " + postNo);
+        logger.info("삭제 요청 발생값 확인 id = " + id);
+        postRepository.deleteById(postNo);
+        return new ModelAndView("redirect:/post/" + id);
+    }
+
 }

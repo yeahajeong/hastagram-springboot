@@ -104,6 +104,7 @@
 			        					<c:if test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.GIF') or (filetype eq '.PNG')}">
 			        					<div class="thumbnail-wrapper">
 			        						<div class="thumbnail">
+												<div class="molasiba">${p.postNo}</div>
 			        							<div class="centered">
 													<img class="img-thumnail img-fluid" src="<c:url value='/post/file/${p.postNo }'/>" >
 												</div>
@@ -131,9 +132,6 @@
 						</div>
 					</div>
 				</div>
-							
-							
-							
 				<!-- end of 게시글이 들어가는곳 -->
 				
 				

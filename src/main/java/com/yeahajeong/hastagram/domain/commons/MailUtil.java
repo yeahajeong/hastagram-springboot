@@ -1,26 +1,20 @@
 package com.yeahajeong.hastagram.domain.commons;
 
 import com.yeahajeong.hastagram.domain.user.User;
-import org.apache.commons.mail.HtmlEmail;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 
 //메일을 보낼 클래스
 public class MailUtil {
 
+    private JavaMailSender mailSender;
+
+    private static final String FROM_EMAIL = "dev_hado@naver.com";
+    private static final String FROM_NAME = "HASTAGRAM";
+
     public void sendMail(User user) throws Exception {
-
-        //Mail Server 설정
-        String charSet = "utf-8";
-        String hostSMTP = "smtp.naver.com";		//SMTP 서버명
-        String hostSMTPid = "dev_hado"; 		//네이버 아이디
-        String hostSMTPpw = "2020hastagram!"; 	//네이버 비밀번호
-
-        //보내는 사람
-        String fromEmail = "dev_hado@naver.com";	//보내는 사람 메일
-        String fromName = "HASTAGRAM";			//보내는 사람 이름
-
         String subject = ""; 	//메일 제목
         String msg = "";		//메일 내용
-
         subject = "[HASTAGRAM] 임시 비밀번호 발급 안내";
         msg += "<div align='left'>";
         msg += "<h3>";
@@ -28,24 +22,17 @@ public class MailUtil {
         msg += "<p>임시 비밀번호 : ";
         msg += user.getPw() + "</p></div>";
 
-        //email 전송
         String mailRecipient = user.getEmail(); //받는 사람 이메일 주소
-        try {
-            //객체 선언
-            HtmlEmail mail = new HtmlEmail();
-            mail.setDebug(true);
-            mail.setCharset(charSet);
-            mail.setSSLOnConnect(true); //SSL 사용 (TLS가 없는 경우에 SSL사용)
-            mail.setHostName(hostSMTP);
-            mail.setSmtpPort(587); 		//SMTP 포트 번호
-            mail.setAuthentication(hostSMTPid, hostSMTPpw);
-            mail.setStartTLSEnabled(true); //TLS 사용
-            mail.addTo(mailRecipient, charSet);
-            mail.setFrom(fromEmail, fromName, charSet);
-            mail.setSubject(subject);
-            mail.setHtmlMsg(msg);
-            mail.send();
 
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(mailRecipient);       //받는 사람 주소
+            message.setFrom(FROM_EMAIL);        //보내는 사람 주소 - 해당 메서드를 호출하지않으면 설정파일에 작성한 username으로 세팅됨
+            message.setSubject(subject);        //제목
+            message.setText(msg);               //메시지 내용
+
+            //메일 발송
+            mailSender.send(message);
 
         } catch (Exception e) {
             e.printStackTrace();
