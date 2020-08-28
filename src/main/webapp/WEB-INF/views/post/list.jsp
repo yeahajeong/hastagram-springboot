@@ -56,7 +56,7 @@
 								<!-- 컨텐츠 헤더 프로필 아이디 -->
 								<div class="contentHeaderProfileId">
 									<div class="profileId">
-										<a class="contentHeaderProfileIdATag" href="<c:url value='/hastagram/post/${p.id}' />">${p.id }</a>
+										<a class="contentHeaderProfileIdATag" href="<c:url value='/hastagram/post/${p.user.id}' />">${p.user.id }</a>
 									</div>
 								</div>
 								
@@ -71,16 +71,16 @@
 							
 							<!-- 게시글 사진 -->
 							<div id="demo" class="carousel slide thumbnail-wrapper" data-ride="carousel" data-interval="false"><!-- 자동으로 넘어가지 않도록  설정 data-interval="false"-->
-								<!-- 게시물  ★수정해야할곳★ -->
-								<%--<c:set var="len" value="${fn:length(p.fileName) }" />
+								<!-- 게시물 -->
+								<c:set var="len" value="${fn:length(p.fileName) }" />
 		        				<c:set var="filetype" value="${fn:toUpperCase(fn:substring(p.fileName, len-4, len)) }" />
 								<div class="carousel-inner thumbnail">
 									<div class="carousel-item active centered">
 										<c:if test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.GIF') or (filetype eq '.PNG')}">
-											<img alt="" class="" src="<c:url value='/hastagram/post/file/${p.postNo}'/>">
+											<img alt="" class="" src="<c:url value='/post/file/${p.postNo}'/>">
 										</c:if>
 									</div>
-								</div>--%>
+								</div>
 							</div>
 							
 							<!-- 댓글 리스트 -->
@@ -131,7 +131,7 @@
 									<ul style="padding-left: 6px;">
 										<!-- 게시글 내용 부분 -->
 										<li class="postContent">
-											<a class="postContentId" title="" href="#">${p.id}</a>
+											<a class="postContentId" title="" href="#">${p.user.id}</a>
 											<span>
 												<span>${p.caption }</span>
 												<span>
@@ -164,7 +164,7 @@
 									<div class="commentBox">
 										<form class="commentForm" method="post">
 											<input type="hidden" id="postNo" value="${p.postNo }">
-											<input type="hidden" id="userNo" value="${p.userNo }">
+											<input type="hidden" id="userNo" value="${p.user.userNo }">
 											<textarea id="content" class="commentTextarea" placeholder="댓글 달기..." autocomplete="off"></textarea>
 											<button id="replyBtn" class="commentSubmitButton">게시</button>
 										</form>

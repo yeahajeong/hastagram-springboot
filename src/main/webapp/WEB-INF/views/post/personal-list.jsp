@@ -13,8 +13,8 @@
 	
 	<jsp:include page="../include/static-head.jsp"/>
 	
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/post/personal-list-custom.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/post/modal-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/post/personal-list-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/post/modal-custom.css'/>">
 </head>
 <body>
 	<!-- 전체화면 -->
@@ -23,14 +23,9 @@
 		<!-- contentBox -->
 		<div class="contentBox">
 			<div class="container">
-				
-				
-				
+
 				<jsp:include page="personal-static.jsp"/>
-				
-				
-				
-				
+
 				<!-- contentMenu : 컨텐트 메뉴 바  -->
 				<div class="contentMenu">
 				
@@ -66,8 +61,7 @@
 				</div>
 				<!-- end of contentMenu -->
 				
-				
-				
+
 				<!-- content모음 : 게시글이 들어가는곳 -->
 				<div class="container">
 					<div class="row">
@@ -87,7 +81,7 @@
 							<c:forEach var="p" items="${post }">
 								<form role="form" method="post">
 									<input type="hidden" name="postNo" value="${p.postNo }">				
-									<input type="hidden" name="id" value="${p.id }">				
+									<input type="hidden" name="id" value="${p.user.id }">
 								</form>
 								
 								<div class="col-md-4 upload-item">
@@ -171,7 +165,7 @@
 				if(check) {
 					$.ajax({
 						type: "POST",
-						url: "/myapp/follow/${user.id}",
+						url: "/hastagram/follow/${user.id}",
 						headers: {
 							"Content-Type": "application/json",
 							"X-HTTP-Method-Override": "POST"
@@ -180,14 +174,14 @@
 							console.log("result : " + result);
 							if(result === "FollowOK"){
 								$(".follow").html('<button class="followBtn" id="unfollow-btn">언팔로우</button>');
-								location.href="/myapp/post/${user.id}";
+								location.href="/hastagram/post/${user.id}";
 							}
 						}
 					});
 				} else {
 					$.ajax({
 						type: "POST",
-						url: "/myapp/unfollow/${user.id}",
+						url: "/hastagram/unfollow/${user.id}",
 						headers: {
 							"Content-Type": "application/json",
 							"X-HTTP-Method-Override": "POST"
@@ -196,7 +190,7 @@
 							console.log("result : " + result);
 							if(result === "UnFollowOK"){
 								$(".follow").html('<button class="followBtn" id="follow-btn">팔로우</button>');
-								location.href="/myapp/post/${user.id}";
+								location.href="/hastagram/post/${user.id}";
 							}
 						}
 					});
@@ -204,10 +198,10 @@
 			}
 			
 			$('.pwChangeBtn').on("click", function() {
-				self.location="/myapp/user/pw-change";
+				self.location="/hastagram/user/pw-change";
 			});
 			$('.logoutBtn').on("click", function() {
-				self.location="/myapp/user/logout";
+				self.location="/hastagram/user/logout";
 			});
 			
 			const formObj = $("form[role='form']");

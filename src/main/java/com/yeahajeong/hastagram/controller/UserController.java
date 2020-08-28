@@ -229,7 +229,7 @@ public class UserController {
         User updateUser = userRepository.findUserById(user.getId());
         session.setAttribute("login", updateUser);
 
-        return "chageSuccess";
+        return "changeSuccess";
     }
 
 

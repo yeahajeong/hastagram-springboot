@@ -11,9 +11,9 @@
 	
 	<jsp:include page="../include/static-head.jsp"/>
 	
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/post/personal-list-custom.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/post/personal-write-custom.css'/>">
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/post/modal-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/post/personal-list-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/post/personal-write-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/post/modal-custom.css'/>">
 	
 </head>
 <body>
@@ -36,19 +36,19 @@
 							<span class="">게시물</span>
 						</span>
 					</a>
-					<a class="post-menu" href="<c:url value='resources/post/personal-write'/>">
+					<a class="post-menu" href="<c:url value='/resources/post/personal-write'/>">
 						<span class="">
 							<i class="far fa-bookmark"></i>
 							<span class="">저장됨</span>
 						</span>
 					</a>
-					<a class="post-menu" href="<c:url value='resources/post/personal-write'/>">
+					<a class="post-menu" href="<c:url value='/resources/post/personal-write'/>">
 						<span class="">
 							<i class="far fa-id-badge"></i>
 							<span class="">태그됨</span>
 						</span>
 					</a>
-					<a class="post-menu select-menu" href="<c:url value='resources/post/personal-writer'/>">
+					<a class="post-menu select-menu" href="<c:url value='/resources/post/personal-writer'/>">
 						<span class="">
 							<i class="far fa-edit"></i>
 							<span class="">글쓰기</span>
@@ -64,7 +64,7 @@
 			   		<form class="write-form" action="<c:url value='/post/upload' />" method="post" enctype="multipart/form-data">
 				
 						<input type="hidden" name="userNo" value="${login.userNo }">
-						<input type="hidden" name="id" value="${login.id }">
+<%--						<input type="hidden" name="id" value="${login.id }">--%>
 					
 						<div class="write-upload">
 					   		<!-- 이미지 미리보기 부분 -->
@@ -122,7 +122,7 @@
 			if(check) {
 				$.ajax({
 					type: "POST",
-					url: "/myapp/follow/${user.id}",
+					url: "/hastagram/follow/${user.id}",
 					headers: {
 						"Content-Type": "application/json",
 						"X-HTTP-Method-Override": "POST"
@@ -131,14 +131,14 @@
 						console.log("result : " + result);
 						if(result === "FollowOK"){
 							$(".follow").html('<button class="followBtn" id="unfollow-btn">언팔로우</button>');
-							location.href="/myapp/post/${user.id}";
+							location.href="/hastagram/post/${user.id}";
 						}
 					}
 				});
 			} else {
 				$.ajax({
 					type: "POST",
-					url: "/myapp/unfollow/${user.id}",
+					url: "/hastagram/unfollow/${user.id}",
 					headers: {
 						"Content-Type": "application/json",
 						"X-HTTP-Method-Override": "POST"
@@ -147,7 +147,7 @@
 						console.log("result : " + result);
 						if(result === "UnFollowOK"){
 							$(".follow").html('<button class="followBtn" id="follow-btn">팔로우</button>');
-							location.href="/myapp/post/${user.id}";
+							location.href="/hastagram/post/${user.id}";
 						}
 					}
 				});
@@ -155,10 +155,10 @@
 		}
 		
 		$('.pwChangeBtn').on("click", function() {
-			self.location="/myapp/user/pw-change";
+			self.location="/hastagram/user/pw-change";
 		});
 		$('.logoutBtn').on("click", function() {
-			self.location="/myapp/user/logout";
+			self.location="/hastagram/user/logout";
 		});
   
 		
@@ -188,16 +188,7 @@
 	   	$('.photo_find_btn').click(function(e) {
 	      	$("input:file").click();
 	   	});
-	   	
-	   
-		
-
 	});
-	
-	
-	
-
 	</script>
-	
 </body>
 </html>
