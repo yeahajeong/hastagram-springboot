@@ -1,7 +1,7 @@
 package com.yeahajeong.hastagram;
 
-import com.yeahajeong.hastagram.domain.post.Post;
-import com.yeahajeong.hastagram.domain.user.User;
+import com.yeahajeong.hastagram.domain.Post;
+import com.yeahajeong.hastagram.domain.User;
 import com.yeahajeong.hastagram.repository.PostRepository;
 import com.yeahajeong.hastagram.repository.UserRepository;
 import org.junit.After;

@@ -72,7 +72,7 @@
 									<p>게시물이 없습니다!<br>게시물을 올려주세요.</p>
 								</c:if>
 								<c:if test="${login.userNo != user.userNo }">
-									<p>게시물이 없습니다!<br>게시물을 올려주세요.</p>
+									<p>게시물이 없습니다!<br>^___^</p>
 								</c:if>
 								
 							</div>

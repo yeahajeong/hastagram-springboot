@@ -1,6 +1,6 @@
 package com.yeahajeong.hastagram.repository;
 
-import com.yeahajeong.hastagram.domain.post.Post;
+import com.yeahajeong.hastagram.domain.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.yeahajeong.hastagram.repository;
 
-import com.yeahajeong.hastagram.domain.user.User;
+import com.yeahajeong.hastagram.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

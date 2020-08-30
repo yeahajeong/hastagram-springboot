@@ -1,7 +1,9 @@
 package com.yeahajeong.hastagram.controller;
 
-import com.yeahajeong.hastagram.domain.post.Post;
-import com.yeahajeong.hastagram.domain.user.User;
+import com.yeahajeong.hastagram.domain.Follow;
+import com.yeahajeong.hastagram.domain.Post;
+import com.yeahajeong.hastagram.domain.User;
+import com.yeahajeong.hastagram.repository.FollowRepository;
 import com.yeahajeong.hastagram.repository.PostRepository;
 import com.yeahajeong.hastagram.repository.UserRepository;
 import org.slf4j.Logger;
@@ -30,6 +32,8 @@ public class PostController {
     private UserRepository userRepository;
     @Autowired
     private PostRepository postRepository;
+    @Autowired
+    private FollowRepository followRepository;
 
     //list.jsp 페이지 열람 요청
     @GetMapping("/list")
@@ -51,14 +55,27 @@ public class PostController {
         //현재 로그인 중인 회원(=나)의 정보 담기
         User loginUser = (User)session.getAttribute("login");
 
-        //유저 번호 가져오기
-        Long userNo = user.getUserNo();
-        Long loginUserNo = loginUser.getUserNo();
 
-        List<Post> postList = postRepository.findByUser_UserNoOrderByPostNoDesc(userNo);
+        //개인페이지 주인의 게시물 가져오기
+        List<Post> postList = postRepository.findByUser_UserNoOrderByPostNoDesc(user.getUserNo());
+
+        //팔로우 객체 생성
+        Follow follow = new Follow();
+        follow.setActiveUser(loginUser);    //하는 놈
+        follow.setPassiveUser(user);        //당하는 놈
+        //팔로우 유무 체크
+        int followCheck = followRepository.findByActiveUser_UserNoAndPassiveUser_UserNo(loginUser.getUserNo(), user.getUserNo());
+        //팔로워 리스트 -> (개인페이지에서) 나를 팔로우하는 놈들 목록
+        List<Follow> followerList = followRepository.findByPassiveUser_UserNo(user.getUserNo());
+        //팔로잉 리스트 -> (개인페이지에서) 내가 팔로우하는 놈들 목록
+        List<Follow> followingList = followRepository.findByActiveUser_UserNo(user.getUserNo());
+
 
         model.addAttribute("user", user);
         model.addAttribute("post", postList);
+        model.addAttribute("followCheck", followCheck);
+        model.addAttribute("followerList", followerList);
+        model.addAttribute("followingList", followingList);
 
         return new ModelAndView("post/personal-list");
     }
@@ -72,11 +89,26 @@ public class PostController {
         //로그인 중인 회원(=나)의 정보 담기
         User loginUser = (User) session.getAttribute("login");
 
-        //유저 번호 가져오기
-        Long userNo = user.getUserNo();
-        Long loginUserNo = loginUser.getUserNo();
+        //개인페이지 주인의 게시물 가져오기
+        List<Post> postList = postRepository.findByUser_UserNoOrderByPostNoDesc(user.getUserNo());
+
+        //팔로우 객체 생성
+        Follow follow = new Follow();
+        follow.setActiveUser(loginUser);    //하는 놈
+        follow.setPassiveUser(user);        //당하는 놈
+        //팔로우 유무 체크
+        int followCheck = followRepository.findByActiveUser_UserNoAndPassiveUser_UserNo(loginUser.getUserNo(), user.getUserNo());
+        //팔로워 리스트 -> (개인페이지에서) 나를 팔로우하는 놈들 목록
+        List<Follow> followerList = followRepository.findByPassiveUser_UserNo(user.getUserNo());
+        //팔로잉 리스트 -> (개인페이지에서) 내가 팔로우하는 놈들 목록
+        List<Follow> followingList = followRepository.findByActiveUser_UserNo(user.getUserNo());
+
 
         model.addAttribute("user", user);
+        model.addAttribute("post", postList);
+        model.addAttribute("followCheck", followCheck);
+        model.addAttribute("followerList", followerList);
+        model.addAttribute("followingList", followingList);
 
         return new ModelAndView("post/personal-write");
     }

@@ -1,6 +1,5 @@
-package com.yeahajeong.hastagram.domain.commons;
+package com.yeahajeong.hastagram.domain;
 
-import com.yeahajeong.hastagram.domain.user.User;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 

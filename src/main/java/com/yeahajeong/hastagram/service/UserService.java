@@ -1,8 +1,8 @@
 package com.yeahajeong.hastagram.service;
 
-import com.yeahajeong.hastagram.domain.commons.MailUtil;
-import com.yeahajeong.hastagram.domain.user.Login;
-import com.yeahajeong.hastagram.domain.user.User;
+import com.yeahajeong.hastagram.domain.MailUtil;
+import com.yeahajeong.hastagram.domain.Login;
+import com.yeahajeong.hastagram.domain.User;
 import com.yeahajeong.hastagram.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

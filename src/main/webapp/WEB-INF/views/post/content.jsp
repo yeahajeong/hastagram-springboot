@@ -24,7 +24,7 @@
 				<header class="content-profile">
 					<div class="">
 						<a class="" href="" style="width: 32px; height: 32px;">
-							<img src="<c:url value='resources/img/none-user-img.jpg'/>">
+							<img src="<c:url value='/resources/img/none-user-img.jpg'/>">
 						</a>
 					</div>
 					<div class="">
@@ -43,7 +43,7 @@
 					</div>
 				</header>
 				<div class="content-total">
-					<img src="<c:url value='resources/img/upload-photo-img3.jpg'/>">
+					<img src="<c:url value='/resources/img/upload-photo-img3.jpg'/>">
 				</div>
 				<div class="content-comment">
 					<!-- 아이콘 부분 -->

@@ -1,7 +1,7 @@
 package com.yeahajeong.hastagram.controller;
 
-import com.yeahajeong.hastagram.domain.user.Login;
-import com.yeahajeong.hastagram.domain.user.User;
+import com.yeahajeong.hastagram.domain.Login;
+import com.yeahajeong.hastagram.domain.User;
 import com.yeahajeong.hastagram.repository.UserRepository;
 import com.yeahajeong.hastagram.service.UserService;
 import org.slf4j.Logger;
@@ -124,7 +124,7 @@ public class UserController {
             session.invalidate();               //세션의 정보 초기화
         }
 
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/login");
     }
 
 

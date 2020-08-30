@@ -102,24 +102,25 @@
 		</div>
 		
 		
-<%--		<!-- 팔로워 모달 -->--%>
-<%--		<div class="modal fade" id="followerList">--%>
-<%--			<div class="modal-dialog m-box">--%>
-<%--				<div class="modal-content m-content">--%>
-<%--					<div class="modal-body m-body">--%>
-<%--						<div class="modal-follow-title">--%>
-<%--							<h1 class="">팔로워</h1>--%>
-<%--							<button class="follow-close-btn" data-dismiss="modal" tabindex="0"><i class="fas fa-times"></i></button>--%>
-<%--						</div>--%>
-<%--						<div class="modal-follow-list">--%>
-<%--							<ul class="follow-ul">--%>
-<%--								<c:if test="${followerList.size() <= 0 }">--%>
-<%--									<p>팔로우하는 회원이 없습니다.</p>--%>
-<%--								</c:if>--%>
-<%--								<c:if test="${followerList.size() > 0 }">--%>
-<%--									<c:forEach var="list" items="${followerList }">--%>
-<%--										<li class="follow-li">--%>
-<%--											<div class="profile-section">--%>
+		<!-- 팔로워 모달 -->
+		<div class="modal fade" id="followerList">
+			<div class="modal-dialog m-box">
+				<div class="modal-content m-content">
+					<div class="modal-body m-body">
+						<div class="modal-follow-title">
+							<h1 class="">팔로워</h1>
+							<button class="follow-close-btn" data-dismiss="modal" tabindex="0"><i class="fas fa-times"></i></button>
+						</div>
+						<div class="modal-follow-list">
+							<ul class="follow-ul">
+								<c:if test="${followerList.size() <= 0 }">
+									<p>팔로우하는 회원이 없습니다.</p>
+								</c:if>
+								<c:if test="${followerList.size() > 0 }">
+									<c:forEach var="list" items="${followerList }">
+										<li class="follow-li">
+											<div class="profile-section">
+												<img class="profile-photo" src="<c:url value='/resources/img/none-user-img.jpg'/>">
 <%--												<c:set var="len" value="${fn:length(list.profileName) }" />--%>
 <%--									        	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(list.profileName, len-4, len)) }" />--%>
 <%--									        	<c:choose>--%>
@@ -127,40 +128,41 @@
 <%--														<img class="profile-photo" src="<c:url value='/user/profile/${list.activeUser }'/>">--%>
 <%--													</c:when>--%>
 <%--													<c:otherwise>--%>
-<%--														<img class="profile-photo" src="<c:url value='resources/img/none-user-img.jpg'/>">--%>
+<%--														<img class="profile-photo" src="<c:url value='/resources/img/none-user-img.jpg'/>">--%>
 <%--													</c:otherwise>--%>
 <%--												</c:choose>--%>
-<%--												<p class="profile-id"><a href="<c:url value='/post/${list.activeUserId }' />">${list.activeUserId }</a></p>--%>
-<%--												<!-- <button class="following-list-btn">팔로잉</button> -->--%>
-<%--											</div>--%>
-<%--										</li>--%>
-<%--									</c:forEach>--%>
-<%--								</c:if>--%>
-<%--							</ul>--%>
-<%--						</div>--%>
-<%--					</div>--%>
-<%--				</div>--%>
-<%--			</div>--%>
-<%--		</div>--%>
-<%--		--%>
-<%--		<!-- 팔로잉 모달 -->--%>
-<%--		<div class="modal fade" id="followingList">--%>
-<%--			<div class="modal-dialog m-box">--%>
-<%--				<div class="modal-content m-content">--%>
-<%--					<div class="modal-body m-body">--%>
-<%--						<div class="modal-follow-title">--%>
-<%--							<h1 class="">팔로잉</h1>--%>
-<%--							<button class="follow-close-btn" data-dismiss="modal" tabindex="0"><i class="fas fa-times"></i></button>--%>
-<%--						</div>--%>
-<%--						<div class="modal-follow-list">--%>
-<%--							<ul class="follow-ul">--%>
-<%--								<c:if test="${followingList.size() <= 0 }">--%>
-<%--									<p>팔로잉한 회원이 없습니다.</p>--%>
-<%--								</c:if>--%>
-<%--								<c:if test="${followingList.size() > 0 }">--%>
-<%--									<c:forEach var="list" items="${followingList }">--%>
-<%--										<li class="follow-li">--%>
-<%--											<div class="profile-section">--%>
+												<p class="profile-id"><a href="<c:url value='/post/${list.activeUser.id }' />">${list.activeUser.id }</a></p>
+												<!-- <button class="following-list-btn">팔로잉</button> -->
+											</div>
+										</li>
+									</c:forEach>
+								</c:if>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 팔로잉 모달 -->
+		<div class="modal fade" id="followingList">
+			<div class="modal-dialog m-box">
+				<div class="modal-content m-content">
+					<div class="modal-body m-body">
+						<div class="modal-follow-title">
+							<h1 class="">팔로잉</h1>
+							<button class="follow-close-btn" data-dismiss="modal" tabindex="0"><i class="fas fa-times"></i></button>
+						</div>
+						<div class="modal-follow-list">
+							<ul class="follow-ul">
+								<c:if test="${followingList.size() <= 0 }">
+									<p>팔로잉한 회원이 없습니다.</p>
+								</c:if>
+								<c:if test="${followingList.size() > 0 }">
+									<c:forEach var="list" items="${followingList }">
+										<li class="follow-li">
+											<div class="profile-section">
+												<img class="profile-photo" src="<c:url value='/resources/img/none-user-img.jpg'/>">
 <%--												<c:set var="len" value="${fn:length(list.profileName) }" />--%>
 <%--									        	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(list.profileName, len-4, len)) }" />--%>
 <%--									        	<c:choose>--%>
@@ -168,21 +170,21 @@
 <%--														<img class="profile-photo" src="<c:url value='/user/profile/${list.passiveUser }'/>">--%>
 <%--													</c:when>--%>
 <%--													<c:otherwise>--%>
-<%--														<img class="profile-photo" src="<c:url value='resources/img/none-user-img.jpg'/>">--%>
+<%--														<img class="profile-photo" src="<c:url value='/resources/img/none-user-img.jpg'/>">--%>
 <%--													</c:otherwise>--%>
 <%--												</c:choose>--%>
-<%--												<p class="profile-id"><a href="<c:url value='/post/${list.passiveUserId }' />">${list.passiveUserId }</a></p>--%>
-<%--												<!-- <button class="following-list-btn">팔로잉</button> -->--%>
-<%--											</div>--%>
-<%--										</li>--%>
-<%--									</c:forEach>--%>
-<%--								</c:if>--%>
-<%--							</ul>--%>
-<%--						</div>--%>
-<%--					</div>--%>
-<%--				</div>--%>
-<%--			</div>--%>
-<%--		</div>--%>
+												<p class="profile-id"><a href="<c:url value='/post/${list.passiveUser.id }' />">${list.passiveUser.id}</a></p>
+												<!-- <button class="following-list-btn">팔로잉</button> -->
+											</div>
+										</li>
+									</c:forEach>
+								</c:if>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 <!-- end of 프로필 박스 -->

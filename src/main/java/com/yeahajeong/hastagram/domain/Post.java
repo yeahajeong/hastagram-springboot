@@ -1,7 +1,6 @@
-package com.yeahajeong.hastagram.domain.post;
+package com.yeahajeong.hastagram.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.yeahajeong.hastagram.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,7 +36,7 @@ public class Post {
     private String fileName;            //파일 이름
     private long fileSize;              //파일 크기
     @Lob
-    @Column(columnDefinition = "BLOB")
+    @Column(columnDefinition = "LONGBLOB") //BLOB: 65,535byte, LONGBLOB: 4,294,967,295byte
     private byte[] fileData;            //실제 데이터
 
 //    //클라이언트 측에서 넘어온 파일 데이터를 저장하기 위한 파라미터 읽기용

@@ -56,7 +56,7 @@
 								<!-- 컨텐츠 헤더 프로필 아이디 -->
 								<div class="contentHeaderProfileId">
 									<div class="profileId">
-										<a class="contentHeaderProfileIdATag" href="<c:url value='/hastagram/post/${p.user.id}' />">${p.user.id }</a>
+										<a class="contentHeaderProfileIdATag" href="<c:url value='/post/${p.user.id}' />">${p.user.id }</a>
 									</div>
 								</div>
 								
