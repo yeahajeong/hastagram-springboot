@@ -1,6 +1,4 @@
 # Project exclude paths
 /target/
 .idea
-
-
 application.properties
