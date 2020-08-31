@@ -22,4 +22,8 @@ public interface FollowRepository extends JpaRepository<Follow, Long> {
     // 언팔로우
     @Transactional
     public void deleteByActiveUser_UserNoAndPassiveUser_UserNo(Long activeUser, Long passiveUser);
+
+    //탈퇴시 팔로우 삭제
+    @Transactional
+    public void deleteFollowByActiveUser_UserNo(Long activeUserNo);
 }

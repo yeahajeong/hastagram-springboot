@@ -6,6 +6,7 @@ import com.yeahajeong.hastagram.domain.User;
 import com.yeahajeong.hastagram.repository.FollowRepository;
 import com.yeahajeong.hastagram.repository.PostRepository;
 import com.yeahajeong.hastagram.repository.UserRepository;
+import com.yeahajeong.hastagram.service.PostService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,8 @@ public class PostController {
     private UserRepository userRepository;
     @Autowired
     private PostRepository postRepository;
+    @Autowired
+    private PostService postService;
     @Autowired
     private FollowRepository followRepository;
 
@@ -155,7 +158,7 @@ public class PostController {
 //        post.setFileContentType(file.getContentType());
 //        post.setFileData(file.getBytes());
 
-        postRepository.save(post);
+        postService.save(post);
 
         return new ModelAndView("redirect:/post/list");
     }

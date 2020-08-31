@@ -12,4 +12,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     List<Post> findByUser_UserNoOrderByPostNoDesc(Long userNo);
 
+    //유저 번호로 포스트 삭제
+    void deletePostByUser_UserNo(Long userNo);
+
 }
