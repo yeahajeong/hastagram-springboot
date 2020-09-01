@@ -68,10 +68,22 @@
         </dependency>
 
         <!-- Spring Security 모듈 -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.security</groupId>-->
+<!--            <artifactId>spring-security-web</artifactId>-->
+<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-client -->
         <dependency>
             <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
+            <artifactId>spring-security-oauth2-client</artifactId>
         </dependency>
+
+        <!-- 카톡 로그인을 위해 다운 ! - 서버 내부에서 JSON 파싱 -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
 
         <!-- 메일 관련 api -->
         <dependency>

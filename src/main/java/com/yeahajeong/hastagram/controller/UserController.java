@@ -123,7 +123,6 @@ public class UserController {
             session.removeAttribute("login"); //login세션 없앰
             session.invalidate();               //세션의 정보 초기화
         }
-
         return new ModelAndView("redirect:/login");
     }
 

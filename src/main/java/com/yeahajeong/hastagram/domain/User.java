@@ -29,6 +29,8 @@ public class User {
     private String intro;
     private String phone;
 
+    private String social;
+
     @CreationTimestamp
     private Timestamp regDate;
 
