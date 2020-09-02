@@ -1,7 +1,7 @@
 package com.yeahajeong.hastagram.service;
 
-import com.yeahajeong.hastagram.domain.Login;
 import com.yeahajeong.hastagram.commons.MailUtil;
+import com.yeahajeong.hastagram.domain.Login;
 import com.yeahajeong.hastagram.domain.User;
 import com.yeahajeong.hastagram.repository.FollowRepository;
 import com.yeahajeong.hastagram.repository.PostRepository;
@@ -23,6 +23,8 @@ public class UserService {
     private PostRepository postRepository;
     @Autowired
     private FollowRepository followRepository;
+/*    @Autowired
+    private ProfileImageRepository profileImageRepository;*/
 
     public void register(User user) throws Exception {
         String securePassword = encoder.encode(user.getPw());
@@ -85,6 +87,7 @@ public class UserService {
 
         postRepository.deletePostByUser_UserNo(user.getUserNo()); //관련 게시글 삭제
         followRepository.deleteFollowByActiveUser_UserNo(user.getUserNo()); //팔로우 삭제
+//        profileImageRepository.deleteProfileImageByUser_UserNo(user.getUserNo()); //프로필 삭제
 
         userRepository.delete(user); //탈퇴 진행
     }

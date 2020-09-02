@@ -37,14 +37,14 @@
 					<div class="profileForm">
 						<div class="profilePhoto">
 							<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='/resources/img/none-user-img.jpg'/>">
-							<%--<c:set var="len" value="${fn:length(login.profileName) }" />
-				        	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(login.profileName, len-4, len)) }" />
+							<%--<c:set var="len" value="${fn:length(login.profileImage.fileName) }" />
+				        	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(login.profileImage.fileName, len-4, len)) }" />
 				        	<c:choose>
 				        		<c:when test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.GIF') or (filetype eq '.PNG')}">
 									<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='/user/profile/${login.userNo }'/>">
 								</c:when>
 								<c:otherwise>
-									<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='resources/img/none-user-img.jpg'/>">
+									<img class="profilePhotoImg" style="height: 100%; width: 100%;" alt="${user.id}님의 프로필 사진" src="<c:url value='/resources/img/none-user-img.jpg'/>">
 								</c:otherwise>
 				       		</c:choose>--%>
 						</div>

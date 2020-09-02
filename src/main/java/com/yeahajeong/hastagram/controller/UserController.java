@@ -24,9 +24,12 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
     @Autowired
     private UserRepository userRepository;
+//    @Autowired
+//    private ProfileImageService profileImageService;
+//    @Autowired
+//    private ProfileImageRepository profileImageRepository;
 
     /* ******************** 회원 가입 로직 ******************** */
     //회원가입 페이지 join.jsp 열람 요청
@@ -277,4 +280,50 @@ public class UserController {
     }
 
 
+/*    *//* 프로필 사진 로직 *//*
+    //프로필 사진 등록 요청
+    @PostMapping("/profile/upload")
+    public ModelAndView photoUpload(@RequestParam("file") MultipartFile file, @RequestParam("userNo") Long userNo, HttpSession session) throws Exception {
+
+        ProfileImage profileImgfile = new ProfileImage();
+        profileImgfile.setFileName(file.getOriginalFilename());
+        profileImgfile.setFileSize(file.getSize());
+        profileImgfile.setFileContentType(file.getContentType());
+        profileImgfile.setFileData(file.getBytes());
+        profileImgfile.setUser(userRepository.findUserByUserNo(userNo));
+
+        profileImageService.save(profileImgfile);
+        session.setAttribute("login", userRepository.findUserByUserNo(userNo));
+
+        return new ModelAndView("redirect:/user/update");
+    }
+
+    //프로필 사진 불러오기 요청
+    @RequestMapping("/profile/{userNo}")
+    public ResponseEntity<byte[]> getProfile(@PathVariable Long userNo) throws Exception {
+
+        ProfileImage profile = profileImageRepository.findProfileImageByUser_UserNo(userNo);
+
+        //파일을 클라이언트로 전송하기 위해 전송정보를 담을 헤더 설정
+        HttpHeaders headers = new HttpHeaders();
+        String[] ftypes = profile.getFileContentType().split("/");
+        //전송헤더에 파일정보와 확장자를 셋팅.
+        headers.setContentType(new MediaType(ftypes[0], ftypes[1]));
+        //전송헤더에 파일 용량을 셋팅
+        headers.setContentLength(profile.getFileSize());
+        //전송헤더에 파일명을 셋팅
+        headers.setContentDispositionFormData("attachment", profile.getFileName());
+
+        return new ResponseEntity<byte[]>(profile.getFileData(), headers, HttpStatus.OK);
+    }
+
+    //프로필 사진 삭제 요청
+    @PostMapping("/profile/delete")
+    public ModelAndView photoDelete(Long userNo, HttpSession session) throws Exception {
+
+        profileImageRepository.deleteProfileImageByUser_UserNo(userNo);
+        session.setAttribute("login", userRepository.findUserByUserNo(userNo));
+
+        return new ModelAndView("redirect:/user/update");
+    }*/
 }

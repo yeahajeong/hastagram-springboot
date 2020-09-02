@@ -29,7 +29,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name="userNo") //오래키를 매핑할 때 사용, name속성에는 매핑할 외래키이름 지정
-    @JsonIgnoreProperties({"pw"})
+    @JsonIgnoreProperties({"email, pw, intro, phone, regDate"})
     private User user;
 
     private String fileContentType;     //파일 타입

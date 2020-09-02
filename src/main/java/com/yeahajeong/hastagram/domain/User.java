@@ -6,10 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Data
@@ -19,7 +16,7 @@ import java.sql.Timestamp;
 @Builder //클래스에 빌더 패턴 클래스 생성
 public class User {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userNo;
 
     private String email;
@@ -28,7 +25,6 @@ public class User {
     private String name;
     private String intro;
     private String phone;
-
     private String social;
 
     @CreationTimestamp

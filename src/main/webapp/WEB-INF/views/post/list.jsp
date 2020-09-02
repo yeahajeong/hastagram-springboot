@@ -41,16 +41,16 @@
 									<canvas class="" style="position: absolute; top: -5px; left: -5px; width: 42px; height: 42px;"></canvas>
 									<span class="profilePhoto" style="width: 32px; height: 32px;">
 										<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/resources/img/none-user-img.jpg'/>">
-										<%--<c:set var="len" value="${fn:length(p.profileName) }" />
-							        	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(p.profileName, len-4, len)) }" />
+										<%--<c:set var="len" value="${fn:length(profileImg.fileName) }" />
+							        	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(profileImg.fileName, len-4, len)) }" />
 							        	<c:choose>
 							        		<c:when test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.GIF') or (filetype eq '.PNG')}">
-												<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/hastagram/post/profile/${p.userNo }'/>">
+												<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/hastagram/post/profile/${p.user.userNo }'/>">
 											</c:when>
 											<c:otherwise>
 												<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/resources/img/none-user-img.jpg'/>">
 											</c:otherwise>
-							       		</c:choose> 프로필사진 생략,,,,--%>
+							       		</c:choose>--%>
 									</span>
 								</div>
 								<!-- 컨텐츠 헤더 프로필 아이디 -->

@@ -10,17 +10,17 @@
 	<div class="profileBox">
 		<div class="profilePhoto">
 			<button title="프로필 사진 바꾸기" class="profileButton">
-				<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/img/none-user-img.jpg'/>">
-<%--				<c:set var="len" value="${fn:length(user.profileName) }" />--%>
-<%--	        	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(user.profileName, len-4, len)) }" />--%>
-<%--	        	<c:choose>--%>
-<%--	        		<c:when test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.GIF') or (filetype eq '.PNG')}">--%>
-<%--						<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/user/profile/${user.userNo }'/>">--%>
-<%--					</c:when>--%>
-<%--					<c:otherwise>--%>
-<%--						<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/img/none-user-img.jpg'/>">          --%>
-<%--					</c:otherwise>--%>
-<%--	       		</c:choose>--%>
+				<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/resources/img/none-user-img.jpg'/>">
+				<%--<c:set var="len" value="${fn:length(user.profileImage.fileName) }" />
+	        	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(user.profileImage.fileName, len-4, len)) }" />
+	        	<c:choose>
+	        		<c:when test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.GIF') or (filetype eq '.PNG')}">
+						<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/user/profile/${user.userNo }'/>">
+					</c:when>
+					<c:otherwise>
+						<img class="profilePhotoImg" style="height: 100%; width: 100%;" src="<c:url value='/resources/img/none-user-img.jpg'/>">
+					</c:otherwise>
+	       		</c:choose>--%>
 			</button>
 		</div>
 	</div>
