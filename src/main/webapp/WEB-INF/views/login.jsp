@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<spring:eval expression="@environment.getProperty('spring.security.oauth2.client.registration.kakao.client-id')" var="REDIRECT_ID" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,7 +80,7 @@
 						</span>
 
                     <!-- 카카오로 로그인 버튼 -->
-                    <a class="common-btn kakao-btn" style="padding: 0px;" href="https://kauth.kakao.com/oauth/authorize?client_id=76f68e8c2c7e5519d412f7c1680211fa&redirect_uri=http://localhost:8000/hastagram/social_login/kakao&response_type=code">
+                    <a class="common-btn kakao-btn" style="padding: 0px;" href="https://kauth.kakao.com/oauth/authorize?client_id=${REDIRECT_ID}&redirect_uri=http://localhost:8000/hastagram/social_login/kakao&response_type=code">
                         <%-- <span class="kakao-text">Kakao로 로그인</span> --%>
                         <img style="width: 260px; padding: 0px;" src="<c:url value='/resources/img/main/kakao_account_login_btn_medium_wide.png'/>" >
                     </a>

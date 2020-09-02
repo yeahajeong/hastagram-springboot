@@ -3,6 +3,7 @@ package com.yeahajeong.hastagram.service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -17,7 +18,10 @@ import java.util.Map;
 @Service
 public class KakaoService {
 
-    private static final String APP_KEY = "76f68e8c2c7e5519d412f7c1680211fa"; //REST API KEY
+//    private static final String APP_KEY = ""; //REST API KEY
+    @Value("${spring.security.oauth2.client.registration.kakao.client-id}")
+    private String APP_KEY;
+
     private static final String REDIRECT_URI = "http://localhost:8000/hastagram/social_login/kakao"; //끝나면 토큰을 여기다가 가져다줌
 
     //사용자 접근 토큰을 얻어오는 메소드

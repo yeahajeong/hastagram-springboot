@@ -82,7 +82,13 @@
 						<div class="eachEdit" style="margin-top: 25px;">
 							<aside class="eachEditText"></aside>
 							<div class="eachEditForm">
-								<button class="emailChkBtn" type="button">비밀번호 변경</button>
+								<c:if test="${empty login.social}">
+									<button class="emailChkBtn" type="button">비밀번호 변경</button>
+								</c:if>
+								<c:if test="${not empty login.social}">
+									<p>소셜 로그인 이용자는 비밀번호를 변경할 수 없습니다.</p>
+								</c:if>
+
 							</div>
 						</div>
 						<div class="eachEdit">
