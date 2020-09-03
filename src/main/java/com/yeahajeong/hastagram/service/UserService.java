@@ -1,12 +1,15 @@
 package com.yeahajeong.hastagram.service;
 
-import com.yeahajeong.hastagram.commons.MailUtil;
-import com.yeahajeong.hastagram.domain.Login;
+import com.yeahajeong.hastagram.controller.UserController;
 import com.yeahajeong.hastagram.domain.User;
 import com.yeahajeong.hastagram.repository.FollowRepository;
 import com.yeahajeong.hastagram.repository.PostRepository;
 import com.yeahajeong.hastagram.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +19,12 @@ import java.util.UUID;
 @Service
 public class UserService {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+    @Autowired
+    private JavaMailSender mailSender;
+
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -49,32 +57,69 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public String findPw(Login login) throws Exception {
-        String result;
-        //회원정보 불러오기
-        User user = userRepository.findUserById(login.getId());
+    @Transactional
+    public String findPw(String email) throws Exception {
+        System.out.println("서비스 단 email = " + email);
+        User user = userRepository.findUserByEmail(email);
+//        entityManager.persist(user); //영속상태로 만들어줌
+//        entityManager.flush(); //DB에 저장
+        System.out.println("유저 확인 user = " + user);
 
-        //가입된 아이디가 존재할 경우 이메일 발송
-        if (user != null) {
-            //임시 비밀번호 생성(UUID 이용 - 특수문자는 못넣음 ㅠㅠ)
-            String tempPw = UUID.randomUUID().toString().replace("-", ""); // -를 제거
-            tempPw = tempPw.substring(0, 10); //tempPw를 앞에서부터 10자리 잘라줌
+        String result = "";
 
-            //임시 비밀번호 세팅
-            user.setPw(tempPw);
+        if (user != null) {//가입된 아이디가 존재할 경우
+            if (user.getSocial() != null) {
+                //소셜 로그인은 비밀번호 찾기 발송할 수 없음
+                result = "Social";
+            } else {
+                //이메일 발송해야함!
+                //임시 비밀번호 생성(UUID 이용 - 특수문자는 못넣음 ㅠㅠ)
+                String tempPw = UUID.randomUUID().toString().replace("-", ""); // -를 제거
+                tempPw = tempPw.substring(0, 10); //tempPw를 앞에서부터 10자리 잘라줌
+                logger.info("메일 발송! 임시비밀번호 확인 = " + tempPw);
 
-            //메일 전송
-            MailUtil mail = new MailUtil();
-            mail.sendMail(user);
+                //임시 비밀번호 세팅
+                user.setPw(tempPw);
+                logger.info("임시 비번 생성 후 user 확인 = " + user);
 
-            //회원 비밀번호를 암호화하여 다시 세팅
-            String securePw = encoder.encode(user.getPw());
-            user.setPw(securePw);
+                String subject = ""; 	//메일 제목
+                String msg = "";		//메일 내용
+                subject = "[HASTAGRAM] 임시 비밀번호 발급 안내";
+                msg += "<div align='left'>";
+                msg += "<h3>";
+                msg += user.getId() + "님의 임시 비밀번호입니다.<br>비밀번호를 변경하여 사용하세요.</h3>";
+                msg += "<p>임시 비밀번호 : ";
+                msg += tempPw + "</p></div>";
 
-            //비밀번호 변경
-            userRepository.save(user);
+                try {
+                    SimpleMailMessage message = new SimpleMailMessage();
+                    message.setTo(user.getEmail());       //받는 사람 주소
+                    message.setFrom("dev_hado@naver.com");        //보내는 사람 주소 - 해당 메서드를 호출하지않으면 설정파일에 작성한 username으로 세팅됨
+                    message.setSubject(subject);        //제목
+                    message.setText(msg);               //메시지 내용
 
-            result = "Success";
+                    mailSender.send(message);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+               /*
+
+                //메일 전송
+                MailUtil mail = new MailUtil();
+                mail.sendMail(user);*/
+
+                logger.info("메일 전송함");
+
+                //회원 비밀번호를 암호화하여 다시 세팅
+                String securePw = encoder.encode(user.getPw());
+                user.setPw(securePw);
+                logger.info("비번 암호화 후 user 확인 = " + user);
+
+                //비밀번호 변경
+                userRepository.save(user);
+                result = "Success";
+            }
         } else {
             result = "Fail";
         }

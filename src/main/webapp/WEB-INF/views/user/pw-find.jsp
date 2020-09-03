@@ -48,7 +48,7 @@
 					</div>
 					<div class="login-back">
 						<div class="login-back-btn" style="height: 48px;">
-							<a href="<c:url value='/'/>">로그인으로 돌아가기</a>
+							<a href="<c:url value='/login'/>">로그인으로 돌아가기</a>
 						</div>
 					</div>
 				</div>
@@ -86,9 +86,9 @@
 			$('#send_link_btn').click(function(e) {
 				
 				const email = $('#email').val();
-				const login = {
-					email: email	
-				};
+				// const login = {
+				// 	email: email
+				// };
 				
 				if(chk) {
 					$.ajax({
@@ -98,16 +98,20 @@
 			                "Content-Type": "application/json",
 			                "X-HTTP-Method-Override": "POST"
 			            },
-			            dataType: "text",
-			            data: JSON.stringify(login),
+			            // dataType: "text",
+			            // data: JSON.stringify(email),
+						data: email,
+						datatype: "json",
 			            success: function(result) {
 			            	console.log("result: " + result);
 			            	if(result === "Success") {
 			            		alert('이메일로 임시 비밀번호를 발송하였습니다.');
-			            		self.location = "/hastagram";
-			            	} else {
-			            		alert('일치하는 회원의 정보가 존재하지 않습니다.');
-			            	}
+			            		self.location = "/hastagram/login";
+			            	} else if (result === "Social"){
+								alert('소셜 가입자는 해당 서비스를 이용할 수 없습니다.');
+							} else {
+								alert('일치하는 회원의 정보가 존재하지 않습니다.');
+							}
 			            }
 					});
 					

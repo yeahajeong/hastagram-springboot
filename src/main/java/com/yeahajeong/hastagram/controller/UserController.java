@@ -242,10 +242,13 @@ public class UserController {
         return new ModelAndView("user/pw-find");
     }
 
-    //비밀번호 찾기 요청
+    //비밀번호 찾기 (메일 발송) 요청
     @PostMapping("/pw-find")
-    public String findPw(@RequestBody Login login) throws Exception {
-        return userService.findPw(login);
+    public String findPw(@RequestBody String email) throws Exception {
+        User user = userRepository.findUserByEmail(email);
+        logger.info("비밀번호 찾기 컨트롤러 로직 user : " + user);
+
+        return userService.findPw(email);
     }
 
 

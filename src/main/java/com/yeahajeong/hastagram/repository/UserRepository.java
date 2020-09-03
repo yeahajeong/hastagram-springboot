@@ -4,10 +4,10 @@ import com.yeahajeong.hastagram.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    //아이디 중복 확인
+    //아이디로 유저 조회
     User findUserById(String id);
 
-    //이메일 중복확인
+    //이메일로 유저 조회
     User findUserByEmail(String email);
 
     //유저번호로 회원 정보 조회

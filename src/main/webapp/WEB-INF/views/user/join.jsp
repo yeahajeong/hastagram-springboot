@@ -92,7 +92,7 @@
 						<!-- 두번째 박스 : 로그인 상자 -->
 						<div class="common-box external-enter">
 							<p class="p-text">계정이 있으신가요?
-								<a href="<c:url value='/hastagram/login'/>">
+								<a href="<c:url value='/login'/>">
 									<span style="font-weight: bold;">로그인</span>
 								</a>
 							</p>

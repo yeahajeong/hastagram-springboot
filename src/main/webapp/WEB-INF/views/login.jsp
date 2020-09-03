@@ -89,7 +89,7 @@
                     <div class="msg-box" id="alert_msg"></div>
 
                     <!-- 비밀번호 찾기 -->
-                    <a class="a-text" href="<c:url value='/hastagram/user/pw-find'/>">비밀번호를 잊으셨나요?</a>
+                    <a class="a-text" href="<c:url value='/user/pw-find'/>">비밀번호를 잊으셨나요?</a>
                 </form>
 
             </div>
