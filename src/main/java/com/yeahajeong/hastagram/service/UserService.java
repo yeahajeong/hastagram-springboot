@@ -76,11 +76,9 @@ public class UserService {
                 //임시 비밀번호 생성(UUID 이용 - 특수문자는 못넣음 ㅠㅠ)
                 String tempPw = UUID.randomUUID().toString().replace("-", ""); // -를 제거
                 tempPw = tempPw.substring(0, 10); //tempPw를 앞에서부터 10자리 잘라줌
-                logger.info("메일 발송! 임시비밀번호 확인 = " + tempPw);
 
                 //임시 비밀번호 세팅
                 user.setPw(tempPw);
-                logger.info("임시 비번 생성 후 user 확인 = " + user);
 
                 String subject = ""; 	//메일 제목
                 String msg = "";		//메일 내용
@@ -103,18 +101,9 @@ public class UserService {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-               /*
-
-                //메일 전송
-                MailUtil mail = new MailUtil();
-                mail.sendMail(user);*/
-
-                logger.info("메일 전송함");
-
                 //회원 비밀번호를 암호화하여 다시 세팅
                 String securePw = encoder.encode(user.getPw());
                 user.setPw(securePw);
-                logger.info("비번 암호화 후 user 확인 = " + user);
 
                 //비밀번호 변경
                 userRepository.save(user);

@@ -85,7 +85,7 @@ public class UserController {
         //로그인 시도한 회원의 모든 정보를 가져옴
         User loginTryUser = userRepository.findUserById(login.getId());
 
-        logger.info("로그인한 회원의 정보 : " + loginTryUser);
+//        logger.info("로그인한 회원의 정보 : " + loginTryUser);
 
         //로그인 시도한 회원이 존재하는 경우 -> 가입한 회원 -> 비밀번호 확인 필요
         if (loginTryUser != null) {
@@ -246,7 +246,7 @@ public class UserController {
     @PostMapping("/pw-find")
     public String findPw(@RequestBody String email) throws Exception {
         User user = userRepository.findUserByEmail(email);
-        logger.info("비밀번호 찾기 컨트롤러 로직 user : " + user);
+//        logger.info("비밀번호 찾기 컨트롤러 로직 user : " + user);
 
         return userService.findPw(email);
     }

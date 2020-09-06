@@ -167,8 +167,8 @@ public class PostController {
     //게시글 삭제 요청
     @PostMapping("/delete")
     public ModelAndView delete(@RequestParam("postNo") Long postNo, @RequestParam("id") String id) throws Exception {
-        logger.info("삭제 요청 발생값 확인 postNo = " + postNo);
-        logger.info("삭제 요청 발생값 확인 id = " + id);
+//        logger.info("삭제 요청 발생값 확인 postNo = " + postNo);
+//        logger.info("삭제 요청 발생값 확인 id = " + id);
         postRepository.deleteById(postNo);
         return new ModelAndView("redirect:/post/" + id);
     }

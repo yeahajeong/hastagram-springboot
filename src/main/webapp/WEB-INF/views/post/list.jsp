@@ -213,7 +213,7 @@
 					//통신
 					$.ajax({
 						type: "POST",
-						url: "/hastagram/replies",
+						url: "/hastagram/replies/" + postNo,
 						headers: {
 							"Content-Type": "application/json",
 							"X-HTTP-Method-Override": "POST"
