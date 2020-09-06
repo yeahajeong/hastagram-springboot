@@ -84,7 +84,6 @@
             <artifactId>gson</artifactId>
         </dependency>
 
-
         <!-- 메일 관련 api -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
