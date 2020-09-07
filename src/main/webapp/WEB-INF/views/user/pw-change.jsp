@@ -132,7 +132,7 @@
 					
 					$.ajax({
 						type: "POST",
-						url: "/hastagram/user/checkPw",
+						url: "/user/checkPw",
 						headers: {
 							"Content-Type": "application/json",
 			                "X-HTTP-Method-Override": "POST"
@@ -229,7 +229,7 @@
 					
 					$.ajax({
 						type: "POST",
-						url: "/hastagram/user/pw-change",
+						url: "/user/pw-change",
 			            headers: {
 			                "Content-Type": "application/json",
 			                "X-HTTP-Method-Override": "POST"
@@ -241,7 +241,7 @@
 			            	console.log("result: " + result);
 			            	if(result === "changeSuccess") {
 			            		alert('비밀번호가 변경되었습니다.');
-			            		location.href ="/hastagram/user/pw-change";
+			            		location.href ="/user/pw-change";
 			            	} else {
 			            		alert('현재 비밀번호가 틀렸습니다.');
 			            	}

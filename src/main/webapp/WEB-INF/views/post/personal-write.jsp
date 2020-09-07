@@ -122,7 +122,7 @@
 			if(check) {
 				$.ajax({
 					type: "POST",
-					url: "/hastagram/follow/${user.id}",
+					url: "/follow/${user.id}",
 					headers: {
 						"Content-Type": "application/json",
 						"X-HTTP-Method-Override": "POST"
@@ -131,14 +131,14 @@
 						console.log("result : " + result);
 						if(result === "FollowOK"){
 							$(".follow").html('<button class="followBtn" id="unfollow-btn">언팔로우</button>');
-							location.href="/hastagram/post/${user.id}";
+							location.href="/post/${user.id}";
 						}
 					}
 				});
 			} else {
 				$.ajax({
 					type: "POST",
-					url: "/hastagram/unfollow/${user.id}",
+					url: "/unfollow/${user.id}",
 					headers: {
 						"Content-Type": "application/json",
 						"X-HTTP-Method-Override": "POST"
@@ -147,7 +147,7 @@
 						console.log("result : " + result);
 						if(result === "UnFollowOK"){
 							$(".follow").html('<button class="followBtn" id="follow-btn">팔로우</button>');
-							location.href="/hastagram/post/${user.id}";
+							location.href="/post/${user.id}";
 						}
 					}
 				});
@@ -155,10 +155,10 @@
 		}
 		
 		$('.pwChangeBtn').on("click", function() {
-			self.location="/hastagram/user/pw-change";
+			self.location="/user/pw-change";
 		});
 		$('.logoutBtn').on("click", function() {
-			self.location="/hastagram/user/logout";
+			self.location="/user/logout";
 		});
   
 		

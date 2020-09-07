@@ -171,7 +171,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "/hastagram/user/loginCheck",
+                    url: "/user/loginCheck",
                     headers: {
                         "Content-Type": "application/json",
                         "X-HTTP-Method-Override": "POST"
@@ -192,7 +192,7 @@
 
                         } else if(data === "loginSuccess") {
                             alert("로그인성공!");
-                            self.location="/hastagram/post/list";
+                            self.location="/post/list";
                         }
                     }
                 }); //통신끝!

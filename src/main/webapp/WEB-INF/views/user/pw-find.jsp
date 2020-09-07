@@ -93,7 +93,7 @@
 				if(chk) {
 					$.ajax({
 						type: "POST",
-						url: "/hastagram/user/pw-find",
+						url: "/user/pw-find",
 						headers: {
 			                "Content-Type": "application/json",
 			                "X-HTTP-Method-Override": "POST"
@@ -106,7 +106,7 @@
 			            	console.log("result: " + result);
 			            	if(result === "Success") {
 			            		alert('이메일로 임시 비밀번호를 발송하였습니다.');
-			            		self.location = "/hastagram/login";
+			            		self.location = "/login";
 			            	} else if (result === "Social"){
 								alert('소셜 가입자는 해당 서비스를 이용할 수 없습니다.');
 							} else {

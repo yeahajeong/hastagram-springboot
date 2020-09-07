@@ -127,7 +127,7 @@
 					
 					$.ajax({
 						type: "POST",
-						url: "/hastagram/user/withdrawal",
+						url: "/user/withdrawal",
 						headers: {
 			                "Content-Type": "application/json",
 			                "X-HTTP-Method-Override": "POST"

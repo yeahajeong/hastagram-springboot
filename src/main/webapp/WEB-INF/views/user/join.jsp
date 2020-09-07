@@ -166,7 +166,7 @@
 				const email = $('#user_email').val();
 				$.ajax({
 					type: "POST",
-					url: "/hastagram/user/emailCheck",
+					url: "/user/emailCheck",
 					headers: {
 		                "Content-Type": "application/json",
 		                "X-HTTP-Method-Override": "POST"
@@ -211,7 +211,7 @@
 				const id = $('#user_id').val();
 				$.ajax({
 					type: "POST",
-					url: "/hastagram/user/idCheck",
+					url: "/user/idCheck",
 					headers: {
 		                "Content-Type": "application/json",
 		                "X-HTTP-Method-Override": "POST"
@@ -317,7 +317,7 @@
 				//통신
 				$.ajax({
 					type: "POST",
-					url: "/hastagram/user",
+					url: "/user",
 					headers: {
 						"Content-Type": "application/json",
 						"X-HTTP-Method-Override": "POST"
@@ -328,7 +328,7 @@
 						console.log("result : " + result);
 						if(result === "joinSuccess"){
 							alert("회원가입 성공!");
-							self.location = "/hastagram/login";
+							self.location = "/login";
 						}
 					}
 				}); //통신끝
