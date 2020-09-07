@@ -80,7 +80,7 @@
 						</span>
 
                     <!-- 카카오로 로그인 버튼 -->
-                    <a class="common-btn kakao-btn" style="padding: 0px;" href="https://kauth.kakao.com/oauth/authorize?client_id=${REDIRECT_ID}&redirect_uri=http://localhost:8000/hastagram/social_login/kakao&response_type=code">
+                    <a class="common-btn kakao-btn" style="padding: 0px;" href="https://kauth.kakao.com/oauth/authorize?client_id=${REDIRECT_ID}&redirect_uri=http://ec2-3-35-126-40.ap-northeast-2.compute.amazonaws.com/:8000/social_login/kakao&response_type=code">
                         <%-- <span class="kakao-text">Kakao로 로그인</span> --%>
                         <img style="width: 260px; padding: 0px;" src="<c:url value='/resources/img/main/kakao_account_login_btn_medium_wide.png'/>" >
                     </a>
