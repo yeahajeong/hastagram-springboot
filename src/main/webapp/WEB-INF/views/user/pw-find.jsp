@@ -48,7 +48,7 @@
 					</div>
 					<div class="login-back">
 						<div class="login-back-btn" style="height: 48px;">
-							<a href="<c:url value='/login'/>">로그인으로 돌아가기</a>
+							<a href="<c:url value='/'/>">로그인으로 돌아가기</a>
 						</div>
 					</div>
 				</div>
