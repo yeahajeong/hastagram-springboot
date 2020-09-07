@@ -39,10 +39,10 @@
 
         <!-- DB 설정을 따로 하지 않으면 에러가남 -->
         <!-- JDBC 드라이버 추가 -->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-jdbc</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
         <!-- mysql-connection 추가 -->
 <!--        <dependency>-->
 <!--            <groupId>mysql</groupId>-->
