@@ -82,25 +82,25 @@ public class UserController {
     @PostMapping("/loginCheck")
     public String login(@RequestBody Login login, HttpSession session) {
         String result = null;
+        logger.info("login 확인 = " + login);
         //로그인 시도한 회원의 모든 정보를 가져옴
         User loginTryUser = userRepository.findUserById(login.getId());
 
-//        logger.info("로그인한 회원의 정보 : " + loginTryUser);
+        logger.info("로그인한 회원의 정보 : " + loginTryUser);
 
         //로그인 시도한 회원이 존재하는 경우 -> 가입한 회원 -> 비밀번호 확인 필요
         if (loginTryUser != null) {
 
             if (encoder.matches(login.getPw(), loginTryUser.getPw())) {
+                logger.info("비밀번호 일치합니다.");
                 //비밀번호 일치 -> 로그인 성공
-                result = "loginSuccess";
-
                 //로그인 성공시 로그인 유지를 해주어야함 -> 세션사용
                 //login이라는 이름의 세션에 로그인한 사람의 전체 정보를 저장한다.
                 session.setAttribute("login", loginTryUser);
-
+                logger.info("세션 저장 성공!");
                 //브라우저 닫을 때까지 혹은 세션 유효기간이 만료되기 전까지 세션이 사용됨
                 //session.setMaxInactiveInterval(60 * 60); //세션 만료시간을 1시간으로 설정
-
+                result = "loginSuccess";
             } else {
                 //비밀번호 불일치
                 result = "pwFail";
@@ -126,7 +126,7 @@ public class UserController {
             session.removeAttribute("login"); //login세션 없앰
             session.invalidate();               //세션의 정보 초기화
         }
-        return new ModelAndView("redirect:/login");
+        return new ModelAndView("redirect:/");
     }
 
 
