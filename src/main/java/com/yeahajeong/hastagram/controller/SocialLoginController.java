@@ -18,7 +18,6 @@ public class SocialLoginController {
 
     @Autowired
     private KakaoService kakaoService;
-
     @Autowired
     private UserRepository userRepository;
 
@@ -68,6 +67,6 @@ public class SocialLoginController {
 
         session.invalidate();
 
-        return "redirect:/login";
+        return "redirect:/";
     }
 }
