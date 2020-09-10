@@ -94,7 +94,12 @@
 						<div class="eachEdit">
 							<aside class="eachEditText"></aside>
 							<div class="eachEditForm">
-								<a class="" href="<c:url value='/user/pw-find' />">비밀번호를 잊으셨나요?</a>
+								<c:if test="${empty login.social}">
+									<a class="" href="<c:url value='/user/pw-find' />">비밀번호를 잊으셨나요?</a>
+								</c:if>
+								<c:if test="${not empty login.social}">
+									<p>해당 소셜을 통해 변경할 수 있습니다.</p>
+								</c:if>
 							</div>
 						</div>
 					</form>
