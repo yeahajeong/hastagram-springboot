@@ -22,7 +22,7 @@ public class KakaoService {
     @Value("${spring.security.oauth2.client.registration.kakao.client-id}")
     private String APP_KEY;
 
-    private static final String REDIRECT_URI = "http://ec2-3-35-126-40.ap-northeast-2.compute.amazonaws.com/social_login/kakao"; //끝나면 토큰을 여기다가 가져다줌
+    private static final String REDIRECT_URI = "http://ec2-3-35-126-40.ap-northeast-2.compute.amazonaws.com:8080/social_login/kakao"; //끝나면 토큰을 여기다가 가져다줌
 
     //사용자 접근 토큰을 얻어오는 메소드
     public String getAccessToken(String code) throws Exception {
