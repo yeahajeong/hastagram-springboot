@@ -22,7 +22,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
             response.setContentType("text/html; charset=utf-8");
             PrintWriter out = response.getWriter();
-            out.print("<script>alert('로그인 중 입니다 !'); location.href='/hastagram/post/list';</script>");
+            out.print("<script>alert('로그인 중 입니다 !'); location.href='/post/list';</script>");
             out.flush();
             out.close();
 
