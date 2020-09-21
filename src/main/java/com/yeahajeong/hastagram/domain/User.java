@@ -31,6 +31,9 @@ public class User implements Serializable {
     private String phone;
     private String social;
 
+    private String authKey;
+    private String authStatus;
+
     @CreationTimestamp
     private Timestamp regDate;
 

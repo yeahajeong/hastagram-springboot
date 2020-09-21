@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<spring:eval expression="@environment.getProperty('spring.security.oauth2.client.registration.kakao.client-id')" var="REDIRECT_ID" />
+<spring:eval expression="@environment.getProperty('my.root')" var="REDIRECT_URL" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +45,7 @@
 									
 									<!-- 카톡이나 페이스북으로 가입하기 배너 -->
 									<div class="join-btn">
-										<a class="kakao-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=623078f297cf54c8346f98a5e807a5e1&redirect_uri=http://localhost:8000/myapp/kakaoLogin&response_type=code"">
+										<a class="kakao-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=${REDIRECT_ID}&redirect_uri=${REDIRECT_URL}/kakaoLogin&response_type=code"">
 											<%-- <span class="">Kakao로 로그인</span> --%>
 											<img style="width: 266px; padding: 0px;" src="<c:url value='/resources/img/main/kakao_account_login_btn_medium_wide.png'/>" >
 										</a>
@@ -88,6 +91,9 @@
 								</form>
 							</div>
 						</div>
+
+						<!-- 경고창 -->
+						<div class="msg-box" id="alert_msg"></div>
 						
 						<!-- 두번째 박스 : 로그인 상자 -->
 						<div class="common-box external-enter">
@@ -154,12 +160,14 @@
 			if($('#user_email').val() === ""){
 				$('#email_msg').html('<i style="color: red" class="far fa-times-circle"></i>');
 				chk1 = false;
+				$('#alert_msg').html('<p>이메일을 입력해주세요.</p>');
 			
 			//이메일 유효성 검증
 			} else if(!getMailCheck.test($('#user_email').val())){
 				
 				$('#email_msg').html('<i style="color: red" class="far fa-times-circle"></i>');
 				chk1 = false;
+				$('#alert_msg').html('<p>잘못된 이메일 형식입니다.</p>');
 				
 			//이메일 중복확인 비동기 처리
 			} else {
@@ -181,6 +189,7 @@
 		            	} else {
 		            		$('#email_msg').html('<i style="color: red" class="far fa-times-circle"></i>');
 		            		chk1 = false;
+							$('#alert_msg').html('<p>중복된 이메일이 존재합니다.</p>');
 		            	}
 		            },
 		            error: function(error){
@@ -199,12 +208,14 @@
 			if($('#user_id').val() === ""){
 				$('#id_msg').html('<i style="color: red" class="far fa-times-circle"></i>');
 				chk2 = false;
+				$('#alert_msg').html('<p>아이디를 입력해주세요.</p>');
 			
 			//아이디 유효성 검증
 			} else if(!getIdCheck.test($('#user_id').val())){
 				
 				$('#id_msg').html('<i style="color: red" class="far fa-times-circle"></i>');
 				chk2 = false;
+				$('#alert_msg').html('<p>대소문자, 숫자만 사용가능합니다.</p>');
 				
 			//아이디 중복확인 비동기 처리
 			} else {
@@ -226,6 +237,7 @@
 		            	} else {
 		            		$('#id_msg').html('<i style="color: red" class="far fa-times-circle"></i>');
 		            		chk2 = false;
+							$('#alert_msg').html('<p>중복된 아이디가 존재합니다.</p>');
 		            	}
 		            },
 		            error: function(error){
@@ -242,11 +254,13 @@
 			if($('#user_pw').val() === "") {
 				$('#pw_msg').html('<i style="color: red" class="far fa-times-circle"></i>');
 				chk3 = false;
+				$('#alert_msg').html('<p>비밀번호를 입력해주세요.</p>');
 			}
 			//비밀번호 유효성 검사
 			else if(!getPwCheck.test($("#user_pw").val()) || $("#user_pw").val().length < 8){
 				$('#pw_msg').html('<i style="color: red" class="far fa-times-circle"></i>');
 				chk3 = false;
+				$('#alert_msg').html('<p>대소문자, 숫자, 특수문자를 조합해주세요.</p>');
 			}
 			
 			else {
@@ -263,11 +277,13 @@
 			if($("#user_pw_check").val() === ""){
 				$('#pw_check_msg').html('<i style="color: red" class="far fa-times-circle"></i>');
 				chk4 = false;
+				$('#alert_msg').html('<p>비밀번호 확인을 입력해주세요.</p>');
 			}		         
 			//비밀번호 확인란 유효성검사
 			else if($("#user_pw").val() != $("#user_pw_check").val()){
 				$('#pw_check_msg').html('<i style="color: red" class="far fa-times-circle"></i>');
 				chk4 = false;
+				$('#alert_msg').html('<p>비밀번호가 일치하지 않습니다..</p>');
 			} else {
 				$('#pw_check_msg').html('<i style="color: #262626;" class="far fa-check-circle"></i>');
 				chk4 = true;
@@ -287,6 +303,7 @@
 			if(!getName.test($("#user_name").val())){
 				$('#name_msg').html('<i style="color: red" class="far fa-times-circle"></i>');
 				chk5 = false;
+				$('#alert_msg').html('<p>이름을 입력해주세요.</p>');
 			} else {
 				$('#name_msg').html('<i style="color: #262626;" class="far fa-check-circle"></i>');
 				chk5 = true;
@@ -298,8 +315,6 @@
 		$('#join-btn-btn').click(function(e) {
 			
 			if(chk1 && chk2 && chk3 && chk4 && chk5) {
-				
-				
 				//값을 객체에 담기
 				const email = $('#user_email').val();
 				const id = $('#user_id').val();

@@ -151,7 +151,7 @@
 							
 							if(result === "Success") {
 								alert('탈퇴되었습니다. 안녕!');
-								self.location = '/hastagram';
+								self.location = '/';
 						    } else {
 						    	alert('비밀번호가 틀렸습니다.')
 						    }

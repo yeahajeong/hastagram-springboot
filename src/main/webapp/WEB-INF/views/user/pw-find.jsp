@@ -106,7 +106,7 @@
 			            	console.log("result: " + result);
 			            	if(result === "Success") {
 			            		alert('이메일로 임시 비밀번호를 발송하였습니다.');
-			            		self.location = "/login";
+			            		self.location = "/";
 			            	} else if (result === "Social"){
 								alert('소셜 가입자는 해당 서비스를 이용할 수 없습니다.');
 							} else {

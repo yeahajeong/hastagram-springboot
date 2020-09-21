@@ -53,6 +53,7 @@ public class SocialLoginController {
             newUser.setName(name);
 //            newUser.setPw("1111");
             newUser.setSocial("kakao");
+            newUser.setAuthStatus("Y");
             userRepository.save(newUser);
             session.setAttribute("login", newUser);
         }

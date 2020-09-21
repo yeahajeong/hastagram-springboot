@@ -24,12 +24,12 @@
 					</div>
 				</c:if>
 				<c:if test="${empty login }">
-					<a href="<c:url value='/login'/>" style="color: #262626;"><i class="fab fa-instagram fa-2x"></i></a>
+					<a href="<c:url value='/'/>" style="color: #262626;"><i class="fab fa-instagram fa-2x"></i></a>
 					<!-- 가운데 선 -->
 					<div class="logo-bar"></div>
 					<!-- 인스타그램 로고 이미지 -->
 					<div class="logo-img">
-						<a href="<c:url value='/login'/>"><img alt="" src="<c:url value='/resources/img/instagram-logo.png'/>"></a>
+						<a href="<c:url value='/'/>"><img alt="" src="<c:url value='/resources/img/instagram-logo.png'/>"></a>
 					</div>
 				</c:if>
 				</div>

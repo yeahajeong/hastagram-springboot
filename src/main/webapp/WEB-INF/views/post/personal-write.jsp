@@ -73,7 +73,7 @@
 							</div>
 							<!-- 게시글 내용 작성 부분 -->
 							<div class="right-side">
-					   			<textarea class="input-textarea" name="caption" placeholder="문구 입력..." style="resize: none;"></textarea>
+					   			<textarea class="input-textarea" name="caption" placeholder="문구 입력...\n사진을 등록하지 않으면 공유할 수 없습니다." style="resize: none;"></textarea>
 					   		</div>
 						</div>
 					
