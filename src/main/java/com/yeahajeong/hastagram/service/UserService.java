@@ -56,7 +56,8 @@ public class UserService {
         subject = "[HASTAGRAM] 회원가입 본인인증 안내";
         msg += "<div align='left'>";
         msg += "<h3>아래 링크를 클릭하면 이메일 인증이 완료됩니다.</h3>";
-        msg += "<p><a href='http://localhost:8080/user/emailauth?email=";
+        msg += "<p><a href='http://ec2-3-35-126-40.ap-northeast-2.compute.amazonaws.com:8080/user/emailauth?email=";
+//        msg += "<p><a href='http://localhost:8080/user/emailauth?email=";
         msg += user.getEmail() + "&authkey=";
         msg += user.getAuthKey() + "' target='_blank'>이메일 인증 확인</a></p></div>";
 
