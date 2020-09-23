@@ -342,7 +342,7 @@
 					success: function(result) {
 						console.log("result : " + result);
 						if(result === "joinSuccess"){
-							alert("회원가입 성공!");
+							alert("회원가입되었습니다.\n이메일 본인인증을 완료해주세요!");
 							self.location = "/";
 						}
 					}

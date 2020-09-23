@@ -19,7 +19,7 @@
 				<li class="footer-content"><a href="#">프로필</a></li>
 				<li class="footer-content"><a href="#">해시태그</a></li>
 				<li class="footer-content"><a href="#">언어</a></li>
-				<span style="color: #999;">@ 2019 Hastagram</span>
+				<span style="color: #999;">© 2020 INSTAGRAM FROM FACEBOOK</span>
 			</ul>
 		</nav>
 	</div>
