@@ -14,7 +14,7 @@
     - SOCIAL : 소셜로그인, 소셜로그아웃
     - FOLLOW : 팔로우, 언팔로우
 
-- 미완성인 기능
+- 미완성 기능
     - 프로필 사진
 
 - 시도할 기능
@@ -22,5 +22,5 @@
 
 ------
 #### 사용 기술
-spring boot, Maven, Mysql, Java8, JPA, AWS EC2 + RDS(MariaDB)
+Spring-boot, Maven, Mysql, Java8, JPA, AWS EC2 + RDS(MariaDB)
 
