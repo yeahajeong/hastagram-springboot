@@ -25,8 +25,8 @@ public class KakaoService {
     @Value("${my.root}")
     private static String ROOT;
 
-//    private static final String REDIRECT_URI = ROOT + "/social_login/kakao"; //끝나면 토큰을 여기다가 가져다줌
-    private static final String REDIRECT_URI = "http://ec2-3-35-126-40.ap-northeast-2.compute.amazonaws.com:8080/social_login/kakao";
+    private static final String REDIRECT_URI = ROOT + "/social_login/kakao"; //끝나면 토큰을 여기다가 가져다줌
+//    private static final String REDIRECT_URI = "http://ec2-3-35-126-40.ap-northeast-2.compute.amazonaws.com:8080/social_login/kakao";
 
     //사용자 접근 토큰을 얻어오는 메소드
     public String getAccessToken(String code) throws Exception {
