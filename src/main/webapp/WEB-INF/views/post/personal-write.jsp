@@ -73,7 +73,7 @@
 							</div>
 							<!-- 게시글 내용 작성 부분 -->
 							<div class="right-side">
-					   			<textarea class="input-textarea" name="caption" placeholder="문구 입력...\n사진을 등록하지 않으면 공유할 수 없습니다." style="resize: none;"></textarea>
+					   			<textarea class="input-textarea" name="caption" placeholder="문구 입력... 사진을 등록하지 않으면 공유할 수 없습니다." style="resize: none;"></textarea>
 					   		</div>
 						</div>
 					
@@ -84,7 +84,8 @@
 							</div>
 							<!-- 공유 버튼 부분 -->
 							<div class="right-side">
-								<input type="submit" value="공유" class="input-btn upload-btn" disabled="disabled">
+<%--							서버 요금 초과 방지를 위해 공유버튼 비활성화,,,,흑흑
+								<input type="submit" value="공유" class="input-btn upload-btn" disabled="disabled">--%>
 							</div>
 						</div>
 					</form>
