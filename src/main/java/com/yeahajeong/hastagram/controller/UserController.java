@@ -163,6 +163,11 @@ public class UserController {
         //비밀번호는 그대로
         user.setPw(login.getPw());
 
+        //소셜 여부도 등록을 해주어야한다.
+        user.setSocial(login.getSocial());
+        user.setAuthKey(login.getAuthKey());
+        user.setAuthStatus(login.getAuthStatus());
+
         //아이디와 이메일 존재 확인
         User idCheck = userRepository.findUserById(user.getId());
         User emailCheck = userRepository.findUserByEmail(user.getEmail());
