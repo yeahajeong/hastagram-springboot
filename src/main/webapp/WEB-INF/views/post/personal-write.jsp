@@ -84,8 +84,8 @@
 							</div>
 							<!-- 공유 버튼 부분 -->
 							<div class="right-side">
-<%--							서버 요금 초과 방지를 위해 공유버튼 비활성화,,,,흑흑
-								<input type="submit" value="공유" class="input-btn upload-btn" disabled="disabled">--%>
+<%--							서버 요금 초과 방지를 위해 공유버튼 비활성화,,,,흑흑 --%>
+								<input type="submit" value="공유" class="input-btn upload-btn" disabled="disabled">
 							</div>
 						</div>
 					</form>
