@@ -4,5 +4,4 @@
 application.properties
 application-oauth.properties
 
-css
-img
+static
