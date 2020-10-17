@@ -6,7 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Data
@@ -14,7 +18,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor //모든 필드를 파라미터를 통해 초기화하는 생성자
 @NoArgsConstructor  //기본 생성자 자동 추가 (public User(){}와 같은 효과)
 @Builder //클래스에 빌더 패턴 클래스 생성
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userNo;
@@ -26,6 +30,9 @@ public class User {
     private String intro;
     private String phone;
     private String social;
+
+    private String authKey;
+    private String authStatus;
 
     @CreationTimestamp
     private Timestamp regDate;

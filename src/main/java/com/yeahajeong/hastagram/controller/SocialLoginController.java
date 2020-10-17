@@ -18,7 +18,6 @@ public class SocialLoginController {
 
     @Autowired
     private KakaoService kakaoService;
-
     @Autowired
     private UserRepository userRepository;
 
@@ -54,6 +53,7 @@ public class SocialLoginController {
             newUser.setName(name);
 //            newUser.setPw("1111");
             newUser.setSocial("kakao");
+            newUser.setAuthStatus("Y");
             userRepository.save(newUser);
             session.setAttribute("login", newUser);
         }
@@ -68,6 +68,6 @@ public class SocialLoginController {
 
         session.invalidate();
 
-        return "redirect:/login";
+        return "redirect:/";
     }
 }

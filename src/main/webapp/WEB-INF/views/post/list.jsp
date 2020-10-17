@@ -213,7 +213,7 @@
 					//통신
 					$.ajax({
 						type: "POST",
-						url: "/hastagram/replies/" + postNo,
+						url: "/replies/" + postNo,
 						headers: {
 							"Content-Type": "application/json",
 							"X-HTTP-Method-Override": "POST"
@@ -227,7 +227,7 @@
 						success: function(result) {
 							console.log("result : " + result);
 							if(result === "regSuccess") {
-								self.location = "/hastagram/post/list";
+								self.location = "/post/list";
 							} else {
 								alret("댓글 달기 실패!");
 							}

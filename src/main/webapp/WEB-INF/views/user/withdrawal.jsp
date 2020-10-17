@@ -73,13 +73,25 @@
 						<div class="eachEdit" style="margin-top: 25px;">
 							<aside class="eachEditText"></aside>
 							<div class="eachEditForm">
-								<button class="emailChkBtn" type="button" onclick="return confirm('정말 회원 탈퇴하시겠습니까?')">회원 탈퇴</button>
+								<c:if test="${empty login.social}">
+									<button class="emailChkBtn" type="button" onclick="return confirm('정말 회원 탈퇴하시겠습니까?')">회원 탈퇴</button>
+								</c:if>
+								<c:if test="${not empty login.social}">
+									<p>소셜 로그인 이용자는 탈퇴를 할 수 없습니다.</p>
+								</c:if>
+
 							</div>
 						</div>
 						<div class="eachEdit">
 							<aside class="eachEditText"></aside>
 							<div class="eachEditForm">
-								<a class="" href="<c:url value='/user/pw-find' />">비밀번호를 잊으셨나요?</a>
+								<c:if test="${empty login.social}">
+									<a class="" href="<c:url value='/user/pw-find' />">비밀번호를 잊으셨나요?</a>
+								</c:if>
+								<c:if test="${not empty login.social}">
+									<p>해당 소셜을 통해 이용하세요.</p>
+								</c:if>
+
 							</div>
 						</div>
 					</form>
@@ -127,7 +139,7 @@
 					
 					$.ajax({
 						type: "POST",
-						url: "/hastagram/user/withdrawal",
+						url: "/user/withdrawal",
 						headers: {
 			                "Content-Type": "application/json",
 			                "X-HTTP-Method-Override": "POST"
@@ -139,7 +151,7 @@
 							
 							if(result === "Success") {
 								alert('탈퇴되었습니다. 안녕!');
-								self.location = '/hastagram';
+								self.location = '/';
 						    } else {
 						    	alert('비밀번호가 틀렸습니다.')
 						    }

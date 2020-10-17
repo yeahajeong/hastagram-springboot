@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <spring:eval expression="@environment.getProperty('spring.security.oauth2.client.registration.kakao.client-id')" var="REDIRECT_ID" />
+<spring:eval expression="@environment.getProperty('my.root')" var="REDIRECT_URL" />
 
 <!DOCTYPE html>
 <html>
@@ -80,7 +81,7 @@
 						</span>
 
                     <!-- 카카오로 로그인 버튼 -->
-                    <a class="common-btn kakao-btn" style="padding: 0px;" href="https://kauth.kakao.com/oauth/authorize?client_id=${REDIRECT_ID}&redirect_uri=http://localhost:8000/hastagram/social_login/kakao&response_type=code">
+                    <a class="common-btn kakao-btn" style="padding: 0px;" href="https://kauth.kakao.com/oauth/authorize?client_id=${REDIRECT_ID}&redirect_uri=http://ec2-3-35-126-40.ap-northeast-2.compute.amazonaws.com:8080/social_login/kakao&response_type=code">
                         <%-- <span class="kakao-text">Kakao로 로그인</span> --%>
                         <img style="width: 260px; padding: 0px;" src="<c:url value='/resources/img/main/kakao_account_login_btn_medium_wide.png'/>" >
                     </a>
@@ -131,7 +132,6 @@
 
         //확인 값 2개
         let chk1 = false, chk2 = false;
-
         $('#login_id').on('keyup', function(){
 
             if($('#login_id').val() === "") {
@@ -160,8 +160,8 @@
                 const pw = $('#login_pw').val();
 
                 //콘솔에 값 출력
-                console.log("id: " + id);
-                console.log("pw: " + pw);
+                // console.log("id: " + id);
+                // console.log("pw: " + pw);
 
                 //json객체에 담기
                 const userInfo = {
@@ -171,37 +171,39 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "/hastagram/user/loginCheck",
+                    url: "/user/loginCheck",
                     headers: {
                         "Content-Type": "application/json",
                         "X-HTTP-Method-Override": "POST"
                     },
-                    data: JSON.stringify(userInfo),
                     dataType: "text",
-                    success: function(data) {
+                    data: JSON.stringify(userInfo),
+                    // data: userInfo,
+                    // datatype: "json",
+                    success: function(result) {
 
-                        console.log("result:" + data);
+                        console.log("result:" + result);
 
-                        if(data === "emailFail") {
+                        if(result === "emailFail") {
                             $('#alert_msg').html('<p>입력한 사용자 이름을 사용하는 계정을 찾을 수 없습니다. 사용자 이름을 확인하고 다시 시도하세요.</p>');
                             $('#login_email').focus();
 
-                        } else if(data === "pwFail") {
+                        } else if(result === "pwFail") {
                             $('#login_pw').focus();
                             $('#alert_msg').html('<p>잘못된 비밀번호입니다. 다시 확인하세요.</p>');
 
-                        } else if(data === "loginSuccess") {
+                        } else if(result === "nonApproval") {
+                            $('#alert_msg').html('<p>이메일 인증을 해주세요.</p>');
+                        } else if(result === "loginSuccess") {
                             alert("로그인성공!");
-                            self.location="/hastagram/post/list";
+                            self.location="/post/list";
                         }
                     }
                 }); //통신끝!
-
             } else {
                 alert('입력 정보를 다시 확인하세요');
             }
         });
-
 
         $('#login_pw').keydown(function(key){
             //엔터키 코드 13

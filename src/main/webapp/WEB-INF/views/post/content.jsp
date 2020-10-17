@@ -11,7 +11,7 @@
 	
 	<jsp:include page="../include/static-head.jsp"/>
 	
-	<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/board/content-custom.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/board/content-custom.css'/>">
 </head>
 <body>
 	<!-- 전체화면 -->

@@ -26,7 +26,7 @@ public class BasicInterceptor extends HandlerInterceptorAdapter {
             //브라우저에 html을 자바코드로 출력하는 방법
             response.setContentType("text/html; charset=utf-8");
             PrintWriter out = response.getWriter();
-            out.print("<script>alert('로그인이 필요합니다 !'); location.href='/hastagram/login';</script>");
+            out.print("<script>alert('로그인이 필요합니다 !'); location.href='/';</script>");
             out.flush();//출력버퍼를 비우는 코드
             out.close();
 

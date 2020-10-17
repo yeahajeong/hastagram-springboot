@@ -269,7 +269,7 @@
 					//통신
 					$.ajax({
 						type: "POST",
-						url: "/hastagram/user/update",
+						url: "/user/update",
 						headers: {
 							"Content-Type": "application/json",
 							"X-HTTP-Method-Override": "POST"
@@ -280,7 +280,7 @@
 							console.log("result : " + result);
 							if(result === "updateSuccess"){
 								alert("회원정보 변경 성공!");
-								self.location = "redirect:/hastagram/user/update";
+								self.location = "redirect:/user/update";
 							} else if (result === "idFail") {
 								alert("중복된 아이디가 존재합니다.");
 							} else if (result === "emailFail") {

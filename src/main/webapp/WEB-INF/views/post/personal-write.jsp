@@ -73,7 +73,7 @@
 							</div>
 							<!-- 게시글 내용 작성 부분 -->
 							<div class="right-side">
-					   			<textarea class="input-textarea" name="caption" placeholder="문구 입력..." style="resize: none;"></textarea>
+					   			<textarea class="input-textarea" name="caption" placeholder="문구 입력... 사진을 등록하지 않으면 공유할 수 없습니다." style="resize: none;"></textarea>
 					   		</div>
 						</div>
 					
@@ -84,7 +84,8 @@
 							</div>
 							<!-- 공유 버튼 부분 -->
 							<div class="right-side">
-								<input type="submit" value="공유" class="input-btn upload-btn" disabled="disabled">
+<%--							서버 요금 초과 방지를 위해 공유버튼 비활성화,,,,흑흑
+								<input type="submit" value="공유" class="input-btn upload-btn" disabled="disabled"> --%>
 							</div>
 						</div>
 					</form>
@@ -122,7 +123,7 @@
 			if(check) {
 				$.ajax({
 					type: "POST",
-					url: "/hastagram/follow/${user.id}",
+					url: "/follow/${user.id}",
 					headers: {
 						"Content-Type": "application/json",
 						"X-HTTP-Method-Override": "POST"
@@ -131,14 +132,14 @@
 						console.log("result : " + result);
 						if(result === "FollowOK"){
 							$(".follow").html('<button class="followBtn" id="unfollow-btn">언팔로우</button>');
-							location.href="/hastagram/post/${user.id}";
+							location.href="/post/${user.id}";
 						}
 					}
 				});
 			} else {
 				$.ajax({
 					type: "POST",
-					url: "/hastagram/unfollow/${user.id}",
+					url: "/unfollow/${user.id}",
 					headers: {
 						"Content-Type": "application/json",
 						"X-HTTP-Method-Override": "POST"
@@ -147,7 +148,7 @@
 						console.log("result : " + result);
 						if(result === "UnFollowOK"){
 							$(".follow").html('<button class="followBtn" id="follow-btn">팔로우</button>');
-							location.href="/hastagram/post/${user.id}";
+							location.href="/post/${user.id}";
 						}
 					}
 				});
@@ -155,10 +156,10 @@
 		}
 		
 		$('.pwChangeBtn').on("click", function() {
-			self.location="/hastagram/user/pw-change";
+			self.location="/user/pw-change";
 		});
 		$('.logoutBtn').on("click", function() {
-			self.location="/hastagram/user/logout";
+			self.location="/user/logout";
 		});
   
 		
