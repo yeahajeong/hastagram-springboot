@@ -1,6 +1,6 @@
 # hastagram-springboot
 > 팀 프로젝트로 진행했던 인스타그램 클론 코딩하여 구현한 hastagram 프로젝트를 spring-boot로 변경해 개인 프로젝트를 진행하였다.
-[HASTAGRAM 바로가기](http://ec2-3-35-126-40.ap-northeast-2.compute.amazonaws.com:8080/)
+[HASTAGRAM 바로가기](http://qec2-3-35-126-40.ap-northeast-2.compute.amazonaws.com:8080/server-down) -> 현재 서버 내림
 
 -------
 #### 기능 설명
