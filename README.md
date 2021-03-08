@@ -6,9 +6,11 @@ SNS인 인스타그램을 클론하여 제작한 웹사이트입니다. 사용�
 
 
 
+
 ## 🔗실서버 링크
 
 [하스타그램 바로가기](#http://qec2-3-35-126-40.ap-northeast-2.compute.amazonaws.com:8080/server-down)  *=> 현재 서버 비용 문제로 내려가있습니다.*
+
 
 
 
@@ -30,9 +32,11 @@ SNS인 인스타그램을 클론하여 제작한 웹사이트입니다. 사용�
 
 
 
+
 ## 📽실행 영상
 
 [유튜브 바로가기](#https://youtu.be/yvMG--1sgAU)
+
 
 
 
@@ -123,4 +127,9 @@ SNS인 인스타그램을 클론하여 제작한 웹사이트입니다. 사용�
     - POST delete/upload
   - 게시글 삭제
     - POST post/delete
+
+
+
+
+## REFERENCES
 
